@@ -3,11 +3,29 @@
     padding: 0%;
 }
 
-.div_contenedor{
+.personaje{
+    background-image: url(../img/personaje_camina.png);
+    min-height: 283px;
+    width: 170px;
+    animation: walk 1s steps(5) infinite;
+}
+
+/* KEYFRAMES- ANIMACIONES*/
+@keyframes walk {
+    0%{background-position: 0;}
+    100% {background-position: -850px;}
+}
+
+@keyframes jump {
+    0%{background-position: 0;}
+    100% {background-position: -978px;}
+}
+
+body{
     text-align: center;
-    height: 670px;
+    height: 100vh;
     display: grid;
-    grid-template-rows: 0.5fr 6fr 0.5fr;
+    grid-template-rows: 1fr 6fr 0.5fr;
 }
 header{
     background-color: aqua;
