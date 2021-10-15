@@ -1,17 +1,21 @@
 document.addEventListener("DOMContentLoaded", function(){
-let personaje= document.getElementById("personaje");
-let url= "../img/personaje_salta.png";
+    let personaje= document.getElementById("personaje");
+    let viewPersonaje = new ViewPersonaje(personaje);
 
     document.addEventListener('keydown',saltar);
-    console.log("está");
 
+    let salta = true;
     function saltar(e) {
-        console.log("alo");
-        if(e.key == "ArrowUp"){
-            personaje.style.animation = "";
-            personaje.style.animation = "jump 2s steps(5) 2s infinite";
-            //console.log(personaje.backgroundImage);
-            personaje.style.backgroundImage= "url(img/personaje_salta.png)";
+        if(e.key == "ArrowUp" && salta){
+            salta = false;
+            viewPersonaje.salta();
+            setTimeout(caminar,1000);
         }
     }
+
+    function caminar(){
+        salta = true;
+        viewPersonaje.camina();
+    }
 });
+
