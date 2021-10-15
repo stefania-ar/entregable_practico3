@@ -1,0 +1,22 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.div_contenedor{
+    text-align: center;
+    height: 670px;
+    display: grid;
+    grid-template-rows: 0.5fr 6fr 0.5fr;
+}
+header{
+    background-color: aqua;
+}
+
+section{
+    background-color: blue;
+}
+
+footer{
+    background-color: brown;
+}
