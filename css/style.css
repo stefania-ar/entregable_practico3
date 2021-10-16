@@ -21,8 +21,9 @@
 }
 
 .caminar{
+    width: 170px;
     background-image: url(../img/personaje_camina.png);
-    animation: walk 0.5s steps(5) infinite;
+    animation: walk 0.5s steps(6) infinite;
 }
 
 .saltar{
@@ -31,10 +32,29 @@
     animation: jump 1s steps(5);
 }
 
+.agachar{
+    width: 140px;
+    background-image: url(../img/personaje_agacha.png);
+    animation: down 0.5s steps(7);
+}
+
+.rodar{
+    top: 50%;
+    width: 166px;
+    background-image: url(../img/personaje_rueda.png);
+    background-repeat: no-repeat;
+    animation: roll 0.5s steps(4) infinite;
+}
+
+.levantar{
+    width: 140px;
+    background-image: url(../img/personaje_levanta.png);
+    animation: rollUp 0.3s steps(5);
+}
 /* KEYFRAMES- ANIMACIONES*/
 @keyframes walk {
     0%{background-position: 0;}
-    100% {background-position: -850px;}
+    100% {background-position: -1046px;}
 }
 
 @keyframes jump {
@@ -44,6 +64,20 @@
         transform: translateY(50px);}
 }
 
+@keyframes down {
+    0%{background-position: 0;}
+    100% {background-position: -1003px;}
+}
+
+@keyframes roll {
+    0%{background-position: 0;}
+    100% {background-position: -694px;}
+}
+
+@keyframes rollUp {
+    0%{background-position: 0;}
+    100% {background-position: -714px;}
+}
 body{
     text-align: center;
     height: 100vh;
