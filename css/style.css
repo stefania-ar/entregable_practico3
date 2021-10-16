@@ -7,8 +7,15 @@
     background-color: darkcyan;
     width: auto;
     height: 100%;
+    background-image: url(../img/fondo.png);
+    background-position: bottom left;
+    animation: animarFondo 19s infinite;
+    animation-timing-function: linear;
 }
-
+@keyframes animarFondo {
+    0%{background-position: bottom left 0;}
+    100% {background-position:  bottom left -2560px;}
+}
 .personaje{
     position: absolute;
     top: 40%;
