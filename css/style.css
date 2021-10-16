@@ -8,6 +8,7 @@
     width: auto;
     height: 100%;
     background-image: url(../img/fondo.png);
+    /*background-repeat: no-repeat;*/
     background-position: bottom left;
     animation: animarFondo 19s infinite;
     animation-timing-function: linear;
@@ -17,10 +18,11 @@
     100% {background-position:  bottom left -2560px;}
 }
 .personaje{
+    background-color: blueviolet;
     position: absolute;
     top: 40%;
     left: 44%;
-    min-height: 283px;
+    height: 283px;
     width: 170px;
     /*transform: translate(600px, 250px);*/
     z-index: 10;
@@ -30,7 +32,7 @@
 .caminar{
     width: 170px;
     background-image: url(../img/personaje_camina.png);
-    animation: walk 0.5s steps(6) infinite;
+    animation: walk 1s steps(6) infinite;
 }
 
 .saltar{
@@ -46,8 +48,9 @@
 }
 
 .rodar{
-    top: 50%;
+    top: 58%;
     width: 166px;
+    height: 160px;
     background-image: url(../img/personaje_rueda.png);
     background-repeat: no-repeat;
     animation: roll 0.5s steps(4) infinite;
@@ -90,16 +93,4 @@ body{
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 6fr 0.5fr;
-}
-header{
-    background-color: aqua;
-}
-
-section{
-    position: relative;
-    background-color: blue;
-}
-
-footer{
-    background-color: brown;
 }

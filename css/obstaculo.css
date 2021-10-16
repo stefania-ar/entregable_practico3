@@ -1,0 +1,14 @@
+.obtaculo_1{
+    background-color: blue;
+    position: absolute;
+    top: 65%;
+    width: 100px;
+    height: 100px;
+    animation: obstaculoMoverse 3s infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes obstaculoMoverse {
+    0%{transform: translateX(1000px);}
+    100% {transform: translateX(-100px);}
+}
