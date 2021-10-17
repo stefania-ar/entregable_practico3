@@ -1,15 +1,12 @@
-class Obstaculo{
+class Personaje{
+
     constructor(div){
-        this.obstaculo = div;
+        this.personaje = div;
         this.setposicion();
     }
 
-    asignarAnimacion(){
-        this.div.amination;
-    }
-
     setposicion(){
-        var posicion = this.obstaculo.getBoundingClientRect();
+        var posicion = this.personaje.getBoundingClientRect();
         this.width = posicion.width;
         this.height = posicion.height;
         this.xInicial = posicion.x;//posicion.left;
