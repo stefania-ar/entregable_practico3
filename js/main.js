@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", function(){
     ///////////NO ME TOMA EL VIEWPERSONAJE :|
     let controlDivPersonaje = new ControlDivPersonaje(divPersonaje);
     //creo objeto para controlar el tiempo de animación de los DIVS de obstaculos
-    let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire);
+    //controla la velocidad en el que corren los obstaculos
+    let tiempoAnimacion = 3;
+    let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion);
     //animo los obstaculos
     controlDivObst.animarObstaculos();
     //ejecuto función de control constante del juego

@@ -1,5 +1,6 @@
 .obstaculo{
     position: absolute;
+    display: none;
     width: 100px;
     height: 100px;
     transform: translateX(1266px);
@@ -17,24 +18,17 @@
     background-color: aqua;
 }
 
-.obstaculo_3{/*tipo suelo*/
-    background-color: black;
-}
-
-.obstaculo_4{/*tipo suelo*/
-    background-color: blue;
-}
-.obstaculo_2{/*tipo aire*/
+.obstaculo_2{/*tipo suelo*/
     background-color: brown;
 }
 
-.obstaculo_5{/*tipo suelo*/
-    background-color: rgb(0, 255, 21);
-    width: 50px;
+.obstaculo_3{/*tipo aire*/
+    background-color: black;
 }
 
 .animar{
-    animation: obstaculoMoverse 4s;
+    display: block;
+    animation: obstaculoMoverse;
     animation-timing-function: linear;
 }
 
