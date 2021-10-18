@@ -1,4 +1,4 @@
-.obtaculo_1{
+.obstaculo_1{
     background-color: blue;
     position: absolute;
     top: 65%;
@@ -11,4 +11,23 @@
 @keyframes obstaculoMoverse {
     0%{transform: translateX(1000px);}
     100% {transform: translateX(-100px);}
+}
+
+.obstaculo_2{
+    background-color: yellowgreen;
+    position: absolute;
+    top: 25%;
+    width: 100px;
+    height: 100px;
+    animation: obstaculoAireMoverse 5s infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes obstaculoAireMoverse {
+    0%{transform: translateX(2000px);}
+    100% {transform: translateX(-100px);}
+}
+
+contenedor_obstaculos{
+    color: aliceblue;
 }

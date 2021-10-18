@@ -1,15 +1,18 @@
 class Obstaculo{
-    constructor(div){
+
+    constructor(div, tipo){
         this.obstaculo = div;
-        this.setposicion();
+        this.setPosicion();
+        this.enRangodeJuego= false;
+        this.tipo = tipo;
     }
 
     asignarAnimacion(){
         this.div.amination;
     }
 
-    setposicion(){
-        var posicion = this.obstaculo.getBoundingClientRect();
+    setPosicion(){
+        let posicion = this.obstaculo.getBoundingClientRect();
         this.width = posicion.width;
         this.height = posicion.height;
         this.xInicial = posicion.x;//posicion.left;
@@ -20,5 +23,20 @@ class Obstaculo{
 
     getPosicion(){
         return { xInicial : this.xInicial, xFinal : this.xFinal, yInicial : this.yInicial,  yFinal : this.yFinal};
+    }
+
+    setEnRango(personaje, xPantalla){
+        if(this.xInicial < personaje.getPosicion().xFinal -50 && 
+        this.xInicial > personaje.getPosicion().xInicial ){
+            this.enRangodeJuego = true;
+        }else this.enRangodeJuego= false;
+    }
+
+    getEnRango(){
+        return this.enRangodeJuego;
+    }
+
+    getTipo(){
+        return this.tipo;
     }
 }

@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", function(){
     let divPersonaje = document.getElementById("personaje");
     let viewPersonaje = new ViewPersonaje(divPersonaje);
+    //elementos obstaculo tipo suelo
+    let clasesObs= document.getElementsByClassName("obstaculo_suelo");
+    let arrayObsSuelo= Array.from(clasesObs);
+    // aire
+    let clasesObsA= document.getElementsByClassName("obstaculo_aire");
+    let arrayObsAire= Array.from(clasesObsA);
+
+    //console.log(arrayObsAire);
+    let gameLoop = new GameLoop(divPersonaje, arrayObsSuelo, arrayObsAire);
+    
+    gameLoop.gameLoop();
 
 
     document.addEventListener('keydown',movimiento);
