@@ -1,33 +1,44 @@
-.obstaculo_1{
-    background-color: blue;
+.obstaculo{
     position: absolute;
-    top: 65%;
     width: 100px;
     height: 100px;
-    animation: obstaculoMoverse 3s infinite;
+    transform: translateX(1266px);
+}
+
+.obstaculo_suelo{
+    top: 65%;
+}
+
+.obstaculo_aire{
+    top: 35%;
+}
+
+.obstaculo_1{/*tipo suelo*/
+    background-color: aqua;
+}
+
+.obstaculo_3{/*tipo suelo*/
+    background-color: black;
+}
+
+.obstaculo_4{/*tipo suelo*/
+    background-color: blue;
+}
+.obstaculo_2{/*tipo aire*/
+    background-color: brown;
+}
+
+.obstaculo_5{/*tipo suelo*/
+    background-color: rgb(0, 255, 21);
+    width: 50px;
+}
+
+.animar{
+    animation: obstaculoMoverse 4s;
     animation-timing-function: linear;
 }
 
 @keyframes obstaculoMoverse {
-    0%{transform: translateX(1000px);}
+    0%{transform: translateX(1266);}
     100% {transform: translateX(-100px);}
-}
-
-.obstaculo_2{
-    background-color: yellowgreen;
-    position: absolute;
-    top: 25%;
-    width: 100px;
-    height: 100px;
-    animation: obstaculoAireMoverse 5s infinite;
-    animation-timing-function: linear;
-}
-
-@keyframes obstaculoAireMoverse {
-    0%{transform: translateX(2000px);}
-    100% {transform: translateX(-100px);}
-}
-
-contenedor_obstaculos{
-    color: aliceblue;
 }

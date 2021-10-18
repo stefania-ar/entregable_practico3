@@ -1,28 +1,44 @@
 document.addEventListener("DOMContentLoaded", function(){
     let divPersonaje = document.getElementById("personaje");
+    //controla clases del divPersonaje
     let viewPersonaje = new ViewPersonaje(divPersonaje);
     //elementos obstaculo tipo suelo
     let clasesObs= document.getElementsByClassName("obstaculo_suelo");
     let arrayObsSuelo= Array.from(clasesObs);
-    // aire
+    // elementos obstaculo tipo aire
     let clasesObsA= document.getElementsByClassName("obstaculo_aire");
     let arrayObsAire= Array.from(clasesObsA);
 
     //console.log(arrayObsAire);
     let gameLoop = new GameLoop(divPersonaje, arrayObsSuelo, arrayObsAire);
-    
+    //creo objeto para controlar movimiento de presonaje
+    ///////////NO ME TOMA EL VIEWPERSONAJE :|
+    let controlDivPersonaje = new ControlDivPersonaje(divPersonaje);
+    //creo objeto para controlar el tiempo de animación de los DIVS de obstaculos
+    let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire);
+    //animo los obstaculos
+    controlDivObst.animarObstaculos();
+    //ejecuto función de control constante del juego
+    //si el personaje se choca con algún obstaculo
     gameLoop.gameLoop();
-
-
-    document.addEventListener('keydown',movimiento);
     //document.addEventListener('keypress',rodar);
     //document.addEventListener('keyup',caminar);
+
+    ///////////MOVIMIENTOS DEL PERSONAJE///////////////////////
+    document.addEventListener('keydown',movimiento);
     document.addEventListener('keyup',caminarDespuesRoll);
+
+    /*function movimiento(e){
+        controlDivPersonaje.movimiento(e);
+    }
+
+    function caminarDespuesRoll(e){
+        controlDivPersonaje.caminarDespuesRoll(e);
+    }*/
 
     let salta = true;
     let down = true;
     let roll = false;
-    let timeCaminar;
 
     function movimiento(e) {
         if(e.key == "ArrowUp" && salta){

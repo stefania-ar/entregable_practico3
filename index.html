@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/personaje.css">
     <link rel="stylesheet" href="css/obstaculo.css">
     <script src="js/main.js"></script>
 </head>
@@ -13,16 +14,21 @@
     <header>header</header>
     <section>
         <div class="contenedor_obstaculos">
-            <div class="obstaculo_1 obstaculo_suelo"  id="obstaculo1"></div>
-            <div class="obstaculo_2 obstaculo_aire"></div>
+            <div class="obstaculo obstaculo_1 obstaculo_suelo"></div>
+            <div class="obstaculo obstaculo_2 obstaculo_suelo"></div>
+            <div class="obstaculo obstaculo_3 obstaculo_aire"></div>
+            <div class="obstaculo obstaculo_4 obstaculo_aire"></div>
         </div>
         <div class="personaje caminar" id="personaje"></div>
         <div class="fondo">fondo</div>
     </section>
     <footer>footer</footer>
     <script src="js/ViewPersonaje.js"></script>
+    <script src="js/ViewDivObstaculo.js"></script>
     <script src="js/Personaje.js"></script>
     <script src="js/Obstaculo.js"></script>
+    <script src="js/ControlDivObstaculos.js"></script>
+    <script src="js/ControlDivPersonaje.js"></script>
     <script src="js/GameLoop.js"></script>
 </body>
 </html>
