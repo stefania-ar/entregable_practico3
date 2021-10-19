@@ -26,6 +26,17 @@ document.addEventListener("DOMContentLoaded", function(){
     //document.addEventListener('keypress',rodar);
     //document.addEventListener('keyup',caminar);
 
+
+///////////PANTALLA DE INICIO///////////////////////
+    ///AGREGAR QUE TAMBIÉN TOME COMO EVENTO CUANDO SE APRIETA LA TECLA ENTER
+    document.getElementById("btn_start").addEventListener("click", ()=>{
+        divPantallaInicio.classList.remove("show");
+        divPantallaInicio.classList.add("hiden");
+    });
+
+
+
+
     ///////////MOVIMIENTOS DEL PERSONAJE///////////////////////
     document.addEventListener('keydown',movimiento);
     document.addEventListener('keyup',caminarDespuesRoll);
@@ -85,11 +96,6 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     let divPantallaInicio = document.getElementById("div_pantalla_inicio");
-    ////pantalla de inicio
-    document.getElementById("btn_start").addEventListener("click", ()=>{
-        divPantallaInicio.classList.remove("show");
-        divPantallaInicio.classList.add("hiden");
-    });
 
 });
 
