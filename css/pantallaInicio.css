@@ -1,0 +1,9 @@
+.pantalla_inicio{
+    position: absolute;
+    left: 10%;
+    background-color: rgb(255, 255, 255);
+    opacity: 70%;
+    width: 80%;
+    height: 80%;
+    z-index: 11;
+}

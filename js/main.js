@@ -84,5 +84,12 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
 
+    let divPantallaInicio = document.getElementById("div_pantalla_inicio");
+    ////pantalla de inicio
+    document.getElementById("btn_start").addEventListener("click", ()=>{
+        divPantallaInicio.classList.remove("show");
+        divPantallaInicio.classList.add("hiden");
+    });
+
 });
 
