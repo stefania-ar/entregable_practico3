@@ -12,13 +12,10 @@ class ControlDivObstaculos{
     crearAtributos(arrayDivSuelo, arrayDivAire){
         if(arrayDivSuelo.length > 0){
             this.divSuelo1 = arrayDivSuelo[0];
-            this.animadoSuelo1 = false;
             this.divSuelo2 = arrayDivSuelo[1];
-            this.animadoSuelo2 = false;
         }
         if(arrayDivAire.length > 0){
             this.divAire1 = arrayDivAire[0];
-            this.animadoAire1 = false;
             /*this.divAire2 = arrayDivAire[1];
             this.animadoAire2 = false;*/
         }
@@ -36,7 +33,7 @@ class ControlDivObstaculos{
             //aplica la animación y esta inicia
             setTimeout(()=> {this.ViewAnimacion.aplicarAnimacion(this.divSuelo2, this.tiempoAnimacion);}, this.tiempoAnimacion/2);//2000 tiempoAnimacion->4
             //remueve la animacion para poder aplicarse devuelta más tarde
-            setTimeout(()=> {this.ViewAnimacion.detenerAnimacion(this.divSuelo2);}, this.tiempoAnimacion+(1000*2));//6000 tiempoAnimacion->4
+            setTimeout(()=> {this.ViewAnimacion.detenerAnimacion(this.divSuelo2);}, this.tiempoAnimacion + 1500);//5500 tiempoAnimacion->4
         ////////////////AIRE///////////////////
         //tercer obstaculo de aire
             //aplica la animación y esta inicia

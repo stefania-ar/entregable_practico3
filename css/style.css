@@ -25,3 +25,29 @@ body{
     display: grid;
     grid-template-rows: 1fr 6fr 0.5fr;
 }
+header{
+    display: flex;
+}
+header{
+    background-color: black;
+}
+
+header div{
+    color: white;
+    width: 50%;
+    margin: auto;
+    font-size: 40px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.p_titulo{
+    font-size: 20px;
+}
+
+footer{
+    padding-top: 0.5%;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: rgb(61, 61, 61);
+}
