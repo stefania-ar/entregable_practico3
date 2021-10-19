@@ -1,10 +1,9 @@
 class Obstaculo{
 
-    constructor(div, tipo){
+    constructor(div){
         this.obstaculo = div;
         this.setPosicion();
         this.enRangodeJuego= false;
-        this.tipo = tipo;
     }
 
     asignarAnimacion(){
@@ -36,7 +35,5 @@ class Obstaculo{
         return this.enRangodeJuego;
     }
 
-    getTipo(){
-        return this.tipo;
-    }
+    chocaConPersonaje(personaje){};
 }

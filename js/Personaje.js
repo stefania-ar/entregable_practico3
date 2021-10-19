@@ -3,6 +3,7 @@ class Personaje{
     constructor(div){
         this.personaje = div;
         this.setPosicion();
+        this.isAvailableToMove =false;
     }
 
     setPosicion(){
@@ -19,10 +20,15 @@ class Personaje{
         return { xInicial : this.xInicial, xFinal : this.xFinal, yInicial : this.yInicial,  yFinal : this.yFinal};
     }
 
-    //esto chequea en forma vertical
-    chocaObstaculoXSuelo(posicionObs){
-        if( this.yFinal -30 > posicionObs.yInicial ){
-            return true;
-        } else return false;
+    canMove(){
+        return this.isAvailableToMove;
+    }
+    
+    setAvailableToMove(bool){
+        this.isAvailableToMove = bool;
+    }
+
+    returnTRUE(){
+        return this.isAvailableToMove;
     }
 }

@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
     let divPersonaje = document.getElementById("personaje");
+    let personaje = new Personaje(divPersonaje);
     //controla clases del divPersonaje
     let viewPersonaje = new ViewPersonaje(divPersonaje);
     //elementos obstaculo tipo suelo
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let arrayObsAire= Array.from(clasesObsA);
 
     //console.log(arrayObsAire);
-    let gameLoop = new GameLoop(divPersonaje, arrayObsSuelo, arrayObsAire);
+    let gameLoop = new GameLoop(personaje, arrayObsSuelo, arrayObsAire);
     //creo objeto para controlar movimiento de presonaje
     ///////////NO ME TOMA EL VIEWPERSONAJE :|
     let controlDivPersonaje = new ControlDivPersonaje(divPersonaje);
@@ -43,19 +44,22 @@ document.addEventListener("DOMContentLoaded", function(){
     let roll = false;
 
     function movimiento(e) {
-        if(e.key == "ArrowUp" && salta){
-            //salta
-            //false quiere decir que ya está saltando
-            salta = false;
-            viewPersonaje.salta();
-            setTimeout(caminar,1000);
-        }else if(e.key == "ArrowDown" && down && salta){//se pregunta por si está abilitado para saltar si no lo está que no se agache
-            //corto la caminata despues de saltar
-            //se agacha
-            down = false;
-            viewPersonaje.down();
-            //empieza a rodar
-            setTimeout(rodar,250);
+        console.log(personaje);
+        if(personaje.canMove()){
+            if(e.key == "ArrowUp" && salta){
+                //salta
+                //false quiere decir que ya está saltando
+                salta = false;
+                viewPersonaje.salta();
+                setTimeout(caminar,1000);
+            }else if(e.key == "ArrowDown" && down && salta){//se pregunta por si está abilitado para saltar si no lo está que no se agache
+                //corto la caminata despues de saltar
+                //se agacha
+                down = false;
+                viewPersonaje.down();
+                //empieza a rodar
+                setTimeout(rodar,250);
+            }
         }
     }
 
@@ -78,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function caminarDespuesRoll(e){
-        if(e.key == "ArrowDown"){
+        if(e.key == "ArrowDown" && personaje.canMove()){
             viewPersonaje.rollUp();
             setTimeout(caminar,300);
         }
@@ -89,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("btn_start").addEventListener("click", ()=>{
         divPantallaInicio.classList.remove("show");
         divPantallaInicio.classList.add("hiden");
+        personaje.setAvailableToMove(true);
     });
 
 });

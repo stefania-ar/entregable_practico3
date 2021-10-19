@@ -1,6 +1,6 @@
 class GameLoop {
-    constructor(divPersonaje, arrayObs, arrayObsAire) {
-        this.personaje = new Personaje(divPersonaje);
+    constructor(personaje, arrayObs, arrayObsAire) {
+        this.personaje = personaje;
         this.obstaculos = this.crearObstaculos(arrayObs, arrayObsAire);
         this.end = false;
         this.xPantalla= window.innerWidth /3 ;
@@ -17,20 +17,16 @@ class GameLoop {
            // console.log(" ");
             this.personaje.setPosicion();
             this.setearPosicionesObstaculos();
-            let obs= this.obstaculos[0];
-            if(obs.getEnRango()){
-                if(obs.getTipo() === "suelo"){
-                    console.log("choca? "+this.personaje.chocaObstaculoXSuelo(obs.getPosicion()));
-                }//else
-            }
-            //console.log(this.obstaculo1.getPosicion());
 
-            /**if (this.rangoJuego() != null) {
-                console.log(this.rangoJuego());
-                 if (this.personaje.choca(this.obstaculo1.getPosicion())) {
-                    this.end = true;
+            //SI HACEMOS UN FOR / WHILE SE SOBRECARGA LA CAPACIDAD DE MI POBRE COMPUTADORA Y ESTALLA TODO POR LOS AIRES
+            let obstaculoEnRango = this.getObstaculoEnRango();
+
+            if(obstaculoEnRango != null){
+                if(obstaculoEnRango.chocaConPersonaje(this.personaje)){
+                    this.end= true;
+                    console.log("es el fin? "+ this.end);
                 }
-            } */
+            }
         }, 100);
     }
 
@@ -38,10 +34,10 @@ class GameLoop {
     crearObstaculos(arrayObs, arrayObsAire){
         let obstaculos= [];
         arrayObs.forEach(element => {
-            obstaculos.push( new Obstaculo(element, "suelo"));
+            obstaculos.push( new ObstaculoTierra(element));
         });
         arrayObsAire.forEach(element => {
-            obstaculos.push( new Obstaculo(element, "aire"));
+            obstaculos.push( new ObstaculoAire(element));
         });
         return obstaculos;
     }
@@ -52,5 +48,20 @@ class GameLoop {
             element.setEnRango(this.personaje, this.xPantalla);
         });
     }
+
+    getObstaculoEnRango(){
+        let obs= this.obstaculos[0];
+        let obs1= this.obstaculos[1];
+        let obs2 = this.obstaculos[2];
+        if(obs.getEnRango()){
+            return obs;
+        }else if(obs1.getEnRango()){
+            return obs1;
+        }else if(obs2.getEnRango()){
+            return obs2;
+        }else return null;
+    }
+
+
 
 }
