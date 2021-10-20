@@ -8,6 +8,17 @@ class GameLoop {
         this.viewPantalla = viewPantalla;
     }
 
+    crearObstaculos(arrayObs, arrayObsAire){
+        let obstaculos= [];
+        arrayObs.forEach(element => {
+            obstaculos.push( new ObstaculoTierra(element));
+        });
+        arrayObsAire.forEach(element => {
+            obstaculos.push( new ObstaculoAire(element));
+        });
+        return obstaculos;
+    }
+
     //Probar que salte bien despues de rodar
     gameLoop() {
         //chequea posiciones de los divs
@@ -36,18 +47,6 @@ class GameLoop {
 
     setGameFinished(bool){
         this.end= bool;
-    }
-
-
-    crearObstaculos(arrayObs, arrayObsAire){
-        let obstaculos= [];
-        arrayObs.forEach(element => {
-            obstaculos.push( new ObstaculoTierra(element));
-        });
-        arrayObsAire.forEach(element => {
-            obstaculos.push( new ObstaculoAire(element));
-        });
-        return obstaculos;
     }
 
     setearPosicionesObstaculos(){

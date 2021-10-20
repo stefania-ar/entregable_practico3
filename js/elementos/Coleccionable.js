@@ -13,5 +13,4 @@ class Coleccionable extends ElementoAnimado{
             return true;
         } else return false;
     }
-  
 }

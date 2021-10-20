@@ -4,7 +4,6 @@ class ObstaculoAire extends ElementoAnimado{
         super(div);
     }
 
-
     chocaConPersonaje(personaje){
         if( personaje.getPosicion().yInicial < this.yFinal ){
             return true;

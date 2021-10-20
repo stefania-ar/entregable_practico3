@@ -1,52 +1,58 @@
 document.addEventListener("DOMContentLoaded", function(){
+    ///////////ELEMENTOS DEL DOM////////////////
+    //DIV en el que e muestra el presonaje
     let divPersonaje = document.getElementById("personaje");
-    let personaje = new Personaje(divPersonaje);
-    //controla clases del divPersonaje
-    let viewPersonaje = new ViewPersonaje(divPersonaje);
-    //elementos obstaculo tipo suelo
+    //DIV en el que se muestra la pantalla de inicio y final
+    let divPantalla = document.getElementById("div_pantalla_inicio");
+    //DIVS en el que se muestran obstaculos de tipo SUELO
     let clasesObs= document.getElementsByClassName("obstaculo_suelo");
-    let arrayObsSuelo= Array.from(clasesObs);
-    // elementos obstaculo tipo aire
+    //DIVS en el que se muestran obstaculos de tipo AIRE
     let clasesObsA= document.getElementsByClassName("obstaculo_aire");
+
+    //creación de arrays con DIVS de obtaculos
+    let arrayObsSuelo= Array.from(clasesObs);
     let arrayObsAire= Array.from(clasesObsA);
+
+    /////////////ELEMENTOS/////////////
+
+    //creación de objeto PERSONJAE
+    let personaje = new Personaje(divPersonaje);
+
+    /////////////VIEWS/////////////
+
+    //creación de objeto que controla vista el DIV del PERSONAJE
+    let viewPersonaje = new ViewPersonaje(divPersonaje);
+    //creación de objeto que controla vista el DIV de los OBSTACULOS
+    let viewObst = new ViewDivObstaculo();
+    //creación de objeto que controla vista el DIV de la PANTALLA
+    let viewPantalla = new ViewPantalla(divPantalla);
+
+    /////////////CONTROLS/////////////
+
+    //creació de objeto para controlar el tiempo de ANIMACIÓN de los DIVS de OBSTACULOS
+    //variable que controla la velocidad en el que corren los obstaculos
+    let tiempoAnimacion = 3;
+    let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion, viewObst);
+    //creación de GAMECONTROL para hacer lo que e tenga que hacer una vez termina el juego
+    let gameControl = new ControlGame(personaje, viewObst, controlDivObst);
+    //creación de GAMELOOP para chequear continuamente si el personaje choca
+    let gameLoop = new GameLoop(personaje, arrayObsSuelo, arrayObsAire, gameControl, viewPantalla);
 
     //creo objeto para controlar movimiento de presonaje
     ///////////NO ME TOMA EL VIEWPERSONAJE :|
     //let controlDivPersonaje = new ControlDivPersonaje(divPersonaje);
-    
-    let viewObst = new ViewDivObstaculo();
-
-    //creo objeto para controlar el tiempo de animación de los DIVS de obstaculos
-    //controla la velocidad en el que corren los obstaculos
-    let tiempoAnimacion = 3;
-    let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion, viewObst);
-    
-    //creo una vista de la pantalla de inicio
-    //ver si se puede ordenar o ubicar
-    let divPantalla = document.getElementById("div_pantalla_inicio");
-    let viewPantalla = new ViewPantalla(divPantalla);
-
-    //creo un game control
-    let gameControl = new ControlGame(personaje, arrayObsSuelo, arrayObsAire, viewObst, controlDivObst);
-    let gameLoop = new GameLoop(personaje, arrayObsSuelo, arrayObsAire, gameControl, viewPantalla);
-    
-    //document.addEventListener('keypress',rodar);
-    //document.addEventListener('keyup',caminar);
 
 
-///////////PANTALLA DE INICIO///////////////////////
+///////////INICIA JUEGO///////////////////////
     ///AGREGAR QUE TAMBIÉN TOME COMO EVENTO CUANDO SE APRIETA LA TECLA ENTER
     document.getElementById("btn_start").addEventListener("click", ()=>{
-        //se muestra la pantalla de inicio
+        //oculta la pantalla de inicio
         viewPantalla.ocultarPantalla();
-        //animo los obstaculos
-        personaje.setAvailableToMove(true);
-        controlDivObst.animarObstaculos();
-        //ejecuto función de control constante del juego
-        //si el personaje se choca con algún obstaculo
+        //animo los obstaculos y habilita movimiento de personaje
+        gameControl.StartAll();
+        //ejecuto función de control constante del juego.
         gameLoop.setGameFinished(false);
         gameLoop.gameLoop();
-
     });
 
 
@@ -109,8 +115,5 @@ document.addEventListener("DOMContentLoaded", function(){
             setTimeout(caminar,300);
         }
     }
-
-   
-
 });
 

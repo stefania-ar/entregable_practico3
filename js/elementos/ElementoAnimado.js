@@ -6,10 +6,6 @@ class ElementoAnimado{
         this.enRangodeJuego= false;
     }
 
-    asignarAnimacion(){
-        this.div.amination;
-    }
-
     setPosicion(){
         let posicion = this.obstaculo.getBoundingClientRect();
         this.width = posicion.width;
@@ -24,8 +20,8 @@ class ElementoAnimado{
         return { xInicial : this.xInicial, xFinal : this.xFinal, yInicial : this.yInicial,  yFinal : this.yFinal};
     }
 
-    setEnRango(personaje, xPantalla){
-        if(this.xInicial < personaje.getPosicion().xFinal -50 && 
+    setEnRango(personaje){
+        if(this.xInicial < personaje.getPosicion().xFinal -50 &&
         this.xInicial > personaje.getPosicion().xInicial ){
             this.enRangodeJuego = true;
         }else this.enRangodeJuego= false;
