@@ -1,0 +1,28 @@
+.coleccionable{
+    background-color: yellow;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    transform: translateX(1266px);
+    
+}
+
+.col_tierra{
+    top: 75%;
+}
+
+.col_aire{
+    top: 20%
+}
+
+/*.animar{
+    display: block;
+    animation: obstaculoMoverse;
+    animation-timing-function: linear;
+}
+
+@keyframes obstaculoMoverse {
+    0%{transform: translateX(1266);}
+    100% {transform: translateX(-100px);}
+}
+*/

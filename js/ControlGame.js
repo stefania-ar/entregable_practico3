@@ -1,11 +1,11 @@
 class ControlGame{
 
-    constructor(player){
-        //DEBE BLOQUEAR LOS MOVIMIENTOS DEL JUGADOR, QUE NO SE PUEDA AGACHAR, SALTAR PERO SÍ SALTAR
+    constructor(player, obsTierra, obsAire, viewDivObstaculos, controlDivObs){
         //MOSTRAR EL GAME OVER CON RESULTADOS, RESTART, OPCION DE HACER CAMBIOS
-        //DESAPARECER LOS OBSTACULOS, QUE NO CORRAN
-        //ESTO MISMO (QUE NO SE MUEVA) TIENE QUE PASAR AL PRINCIPIO DEL JUEGO
         this.personaje= player;
+        this.obstaculos = this.joinObstaculos(obsAire, obsTierra);
+        this.viewDivObstaculos = viewDivObstaculos;
+        this.controlDivObs= controlDivObs;
     }
 
 
@@ -14,10 +14,26 @@ class ControlGame{
     }
 
     disableObstaculos(){
-        //hacer esto
+        //detiene la secuencia de settimeOut de animación
+        this.controlDivObs.detenerAnimacion();
+
+        //la vista le saca la clase de animación
+        console.log("entra en control");
+        this.obstaculos.forEach(element => {
+            this.viewDivObstaculos.detenerAnimacion(element);
+            
+        });
+            
     }
 
-    //reiniciar puntos y tiempo.
+    joinObstaculos(obsAire, obsTierra){
+        let obstaculos= obsTierra.concat(obsAire);
+        return obstaculos;
+    }
 
+    detainAll() {
+        this.disablePlayer();
+        this.disableObstaculos();
+    }
 
 }

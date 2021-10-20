@@ -1,9 +1,11 @@
 class GameLoop {
-    constructor(personaje, arrayObs, arrayObsAire) {
+    constructor(personaje, arrayObs, arrayObsAire, controlGame, viewPantalla) {
         this.personaje = personaje;
         this.obstaculos = this.crearObstaculos(arrayObs, arrayObsAire);
         this.end = false;
         this.xPantalla= window.innerWidth /3 ;
+        this.controlGame = controlGame;
+        this.viewPantalla = viewPantalla;
     }
 
     //Probar que salte bien despues de rodar
@@ -12,6 +14,8 @@ class GameLoop {
         let game = setInterval(() => {
             if (this.end) {
                 clearInterval(game);
+                this.controlGame.detainAll();
+                this.viewPantalla.mostrarPantalla();
             }
             //console.log(personaje.getPosicion());
            // console.log(" ");
@@ -28,6 +32,10 @@ class GameLoop {
                 }
             }
         }, 100);
+    }
+
+    setGameFinished(bool){
+        this.end= bool;
     }
 
 

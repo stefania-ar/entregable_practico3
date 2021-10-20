@@ -1,4 +1,4 @@
-class Obstaculo{
+class ElementoAnimado{
 
     constructor(div){
         this.obstaculo = div;
@@ -36,4 +36,6 @@ class Obstaculo{
     }
 
     chocaConPersonaje(personaje){};
+
+    esColeccionable(){};
 }

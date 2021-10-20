@@ -10,20 +10,26 @@ document.addEventListener("DOMContentLoaded", function(){
     let clasesObsA= document.getElementsByClassName("obstaculo_aire");
     let arrayObsAire= Array.from(clasesObsA);
 
-    //console.log(arrayObsAire);
-    let gameLoop = new GameLoop(personaje, arrayObsSuelo, arrayObsAire);
     //creo objeto para controlar movimiento de presonaje
     ///////////NO ME TOMA EL VIEWPERSONAJE :|
-    let controlDivPersonaje = new ControlDivPersonaje(divPersonaje);
+    //let controlDivPersonaje = new ControlDivPersonaje(divPersonaje);
+    
+    let viewObst = new ViewDivObstaculo();
+
     //creo objeto para controlar el tiempo de animación de los DIVS de obstaculos
     //controla la velocidad en el que corren los obstaculos
     let tiempoAnimacion = 3;
-    let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion);
-    //animo los obstaculos
-    controlDivObst.animarObstaculos();
-    //ejecuto función de control constante del juego
-    //si el personaje se choca con algún obstaculo
-    gameLoop.gameLoop();
+    let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion, viewObst);
+    
+    //creo una vista de la pantalla de inicio
+    //ver si se puede ordenar o ubicar
+    let divPantalla = document.getElementById("div_pantalla_inicio");
+    let viewPantalla = new ViewPantalla(divPantalla);
+
+    //creo un game control
+    let gameControl = new ControlGame(personaje, arrayObsSuelo, arrayObsAire, viewObst, controlDivObst);
+    let gameLoop = new GameLoop(personaje, arrayObsSuelo, arrayObsAire, gameControl, viewPantalla);
+    
     //document.addEventListener('keypress',rodar);
     //document.addEventListener('keyup',caminar);
 
@@ -31,11 +37,17 @@ document.addEventListener("DOMContentLoaded", function(){
 ///////////PANTALLA DE INICIO///////////////////////
     ///AGREGAR QUE TAMBIÉN TOME COMO EVENTO CUANDO SE APRIETA LA TECLA ENTER
     document.getElementById("btn_start").addEventListener("click", ()=>{
-        divPantallaInicio.classList.remove("show");
-        divPantallaInicio.classList.add("hiden");
+        //se muestra la pantalla de inicio
+        viewPantalla.ocultarPantalla();
+        //animo los obstaculos
+        personaje.setAvailableToMove(true);
+        controlDivObst.animarObstaculos();
+        //ejecuto función de control constante del juego
+        //si el personaje se choca con algún obstaculo
+        gameLoop.setGameFinished(false);
+        gameLoop.gameLoop();
+
     });
-
-
 
 
     ///////////MOVIMIENTOS DEL PERSONAJE///////////////////////
@@ -55,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function(){
     let roll = false;
 
     function movimiento(e) {
-        console.log(personaje);
         if(personaje.canMove()){
             if(e.key == "ArrowUp" && salta){
                 //salta
@@ -99,13 +110,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
 
-    let divPantallaInicio = document.getElementById("div_pantalla_inicio");
-    ////pantalla de inicio
-    document.getElementById("btn_start").addEventListener("click", ()=>{
-        divPantallaInicio.classList.remove("show");
-        divPantallaInicio.classList.add("hiden");
-        personaje.setAvailableToMove(true);
-    });
+   
 
 });
 

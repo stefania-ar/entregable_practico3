@@ -1,4 +1,4 @@
-class ObstaculoTierra extends Obstaculo{
+class ObstaculoTierra extends ElementoAnimado{
 
     constructor(div){
         super(div);
@@ -9,6 +9,10 @@ class ObstaculoTierra extends Obstaculo{
         if( personaje.getPosicion().yFinal -30 > this.yInicial ){
             return true;
         } else return false;
+    }
+
+    esColeccionable(){
+        return false;
     }
 
         
