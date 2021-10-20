@@ -1,13 +1,15 @@
 class ControlDivObstaculos{
-    constructor(arrayDivSuelo, arrayDivAire, tiempoAnimacion, viewDivObstaculo){
+    constructor(arrayDivSuelo, arrayDivAire, tiempoAnimacion, viewDivObstaculo, widthPantalla){
+        this.widthPantalla = widthPantalla;
         this.tiempoAnimacion = tiempoAnimacion*1000;
+        this.viewDivObstaculo = viewDivObstaculo;
         //crea atributos para cada uno de los divs de forma individual
         //se usan en la animación
         this.crearAtributos(arrayDivSuelo, arrayDivAire);
         //junto todos los divs para luego recorrerlos y aplicar algo a todos por igual
         //se usa cuando se quiere desabilitar todo
         this.joinObstaculos(arrayDivSuelo, arrayDivAire);
-        this.viewDivObstaculo = viewDivObstaculo;
+        this.ubicarDivsEnPantalla();
         this.secuenciaDivs = null;
         this.time1=null;
         this.time2=null;
@@ -15,6 +17,10 @@ class ControlDivObstaculos{
         this.time4=null;
         this.time5=null;
         this.timeFinal =null;
+    }
+
+    ubicarDivsEnPantalla(){
+        this.viewDivObstaculo.setTranslateX(this.obstaculos, this.widthPantalla);
     }
 
     crearAtributos(arrayDivSuelo, arrayDivAire){

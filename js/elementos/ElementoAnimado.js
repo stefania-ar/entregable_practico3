@@ -1,13 +1,13 @@
 class ElementoAnimado{
 
     constructor(div){
-        this.obstaculo = div;
+        this.div = div;
         this.setPosicion();
         this.enRangodeJuego= false;
     }
 
     setPosicion(){
-        let posicion = this.obstaculo.getBoundingClientRect();
+        let posicion = this.div.getBoundingClientRect();
         this.width = posicion.width;
         this.height = posicion.height;
         this.xInicial = posicion.x;//posicion.left;
@@ -29,6 +29,10 @@ class ElementoAnimado{
 
     getEnRango(){
         return this.enRangodeJuego;
+    }
+
+    getDiv(){
+        return this.div;
     }
 
     chocaConPersonaje(personaje){};

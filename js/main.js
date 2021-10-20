@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function(){
     let arrayObsSuelo= Array.from(clasesObs);
     let arrayObsAire= Array.from(clasesObsA);
 
+    //VARIABLE PARA UBICAR LOS DIVS DE LOS OBTACULOS AL FINAL DE LA PANTALLA
+    //se la paso a ControlDivObstaculos();
+    let widthPantalla = window.innerWidth;
+
     /////////////ELEMENTOS/////////////
 
     //creación de objeto PERSONJAE
@@ -32,16 +36,15 @@ document.addEventListener("DOMContentLoaded", function(){
     //creació de objeto para controlar el tiempo de ANIMACIÓN de los DIVS de OBSTACULOS
     //variable que controla la velocidad en el que corren los obstaculos
     let tiempoAnimacion = 3;
-    let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion, viewObst);
-    //creación de GAMECONTROL para hacer lo que e tenga que hacer una vez termina el juego
-    let gameControl = new ControlGame(personaje, viewObst, controlDivObst);
+    let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion, viewObst, widthPantalla);
+    //creación de CONTROLGAME para hacer lo que e tenga que hacer una vez termina el juego
+    let controlGame = new ControlGame(personaje, viewObst, controlDivObst);
     //creación de GAMELOOP para chequear continuamente si el personaje choca
-    let gameLoop = new GameLoop(personaje, arrayObsSuelo, arrayObsAire, gameControl, viewPantalla);
+    let gameLoop = new GameLoop(personaje, arrayObsSuelo, arrayObsAire, controlGame, viewPantalla);
 
     //creo objeto para controlar movimiento de presonaje
     ///////////NO ME TOMA EL VIEWPERSONAJE :|
     //let controlDivPersonaje = new ControlDivPersonaje(divPersonaje);
-
 
 ///////////INICIA JUEGO///////////////////////
     ///AGREGAR QUE TAMBIÉN TOME COMO EVENTO CUANDO SE APRIETA LA TECLA ENTER
@@ -49,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function(){
         //oculta la pantalla de inicio
         viewPantalla.ocultarPantalla();
         //animo los obstaculos y habilita movimiento de personaje
-        gameControl.StartAll();
+        controlGame.StartAll();
         //ejecuto función de control constante del juego.
         gameLoop.setGameFinished(false);
         gameLoop.gameLoop();
