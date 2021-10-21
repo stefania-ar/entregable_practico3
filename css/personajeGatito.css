@@ -1,0 +1,62 @@
+
+
+.caminar{
+    width: 190px;
+    background-image: url(../img/gatito/gatito_camina.png);
+    animation: walk 1s steps(8) infinite;
+}
+
+.saltar{
+    width: 195px;
+    background-image: url(../img/gatito/gatito_salta.png);
+    animation: jump 1s steps(7);
+}
+
+.agachar{
+    width: 251px;
+    background-image: url(../img/gatito/gatito_agacha.png);
+    animation: down 0.5s steps(4);
+}
+
+.rodar{
+    top: 58%;
+    width: 251px;
+    height: 160px;
+    background-image: url(../img/gatito/gatito_camina_agachado.png);
+    background-repeat: no-repeat;
+    animation: walkDonw 0.5s steps(3) infinite;
+}
+
+.levantar{
+    width: 195px;
+    background-color: aqua;
+    background-image: url(../img/gatito/gatito_agacha.png);
+    background-position: -714px;
+    animation: up 0.5s steps(4);
+}
+/* KEYFRAMES- ANIMACIONES*/
+@keyframes walk {
+    0%{background-position: 0;}
+    100% {background-position: -1525px;}
+}
+
+@keyframes jump {
+    0%{background-position: 0;}
+    50%{transform: translateY(-200px);}
+    100% {background-position: -1336px;
+        transform: translateY(50px);}
+}
+
+@keyframes down {
+    0%{background-position: 0;}
+    100% {background-position: -1015px;}
+}
+
+@keyframes walkDonw {
+    0%{background-position: 0;}
+    100% {background-position: -750px;}
+}
+
+@keyframes up {
+    100% {background-position: 0px;}
+}

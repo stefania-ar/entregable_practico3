@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let arrayObsSuelo= Array.from(clasesObs);
     let arrayObsAire= Array.from(clasesObsA);
 
-    //VARIABLE PARA UBICAR LOS DIVS DE LOS OBTACULOS AL FINAL DE LA PANTALLA
+    //VARIABLE PARA UBICAR LOS DIVS DE LOS OBSTÁCULOS AL FINAL DE LA PANTALLA
     //se la paso a ControlDivObstaculos();
     let widthPantalla = window.innerWidth;
 
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //variable que controla la velocidad en el que corren los obstaculos
     let tiempoAnimacion = 3;
     let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion, viewObst, widthPantalla);
-    //creación de CONTROLGAME para hacer lo que e tenga que hacer una vez termina el juego
+    //creación de CONTROLGAME para hacer lo que tenga que hacer cada vez que inicia o termina el juego
     let controlGame = new ControlGame(personaje, viewObst, controlDivObst);
     //creación de GAMELOOP para chequear continuamente si el personaje choca
     let gameLoop = new GameLoop(personaje, arrayObsSuelo, arrayObsAire, controlGame, viewPantalla);
@@ -118,5 +118,7 @@ document.addEventListener("DOMContentLoaded", function(){
             setTimeout(caminar,300);
         }
     }
+
+    //divMontanias.style.animationPlayState = 'paused';
 });
 

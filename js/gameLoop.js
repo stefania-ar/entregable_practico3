@@ -1,14 +1,14 @@
 class GameLoop {
     constructor(personaje, arrayObs, arrayObsAire, controlGame, viewPantalla) {
         this.personaje = personaje;
-        this.obstaculos = this.crearObstaculos(arrayObs, arrayObsAire);
+        this.obstaculos = this.crearObjetoObstaculos(arrayObs, arrayObsAire);
         this.end = false;
         this.xPantalla= window.innerWidth /3 ;
         this.controlGame = controlGame;
         this.viewPantalla = viewPantalla;
     }
 
-    crearObstaculos(arrayObs, arrayObsAire){
+    crearObjetoObstaculos(arrayObs, arrayObsAire){
         let obstaculos= [];
         arrayObs.forEach(element => {
             obstaculos.push( new ObstaculoTierra(element));

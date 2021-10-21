@@ -8,7 +8,7 @@ class ControlGame{
     }
 
     disablePlayer(){
-        //desabilita movimientos delpersonaje
+        //desabilita movimientos del personaje
         this.personaje.setAvailableToMove(false);
     }
 
