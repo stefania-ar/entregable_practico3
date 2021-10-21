@@ -1,24 +1,17 @@
 class GameLoop {
-    constructor(personaje, arrayObs, arrayObsAire, controlGame, viewPantalla) {
+    constructor(personaje, controlGame, viewPantalla, controlObs) {
         this.personaje = personaje;
-        this.obstaculos = this.crearObjetoObstaculos(arrayObs, arrayObsAire);
+        this.obstaculos = controlObs.getObstaculos();
         this.end = false;
         this.xPantalla= window.innerWidth /3 ;
         this.controlGame = controlGame;
         this.viewPantalla = viewPantalla;
+        this.puntos =0;
+        this.puntosPorColeccionable =5;
+        this.controlObs = controlObs;
     }
 
-    crearObjetoObstaculos(arrayObs, arrayObsAire){
-        let obstaculos= [];
-        arrayObs.forEach(element => {
-            obstaculos.push( new ObstaculoTierra(element));
-        });
-        arrayObsAire.forEach(element => {
-            obstaculos.push( new ObstaculoAire(element));
-        });
-        return obstaculos;
-    }
-
+    
     //Probar que salte bien despues de rodar
     gameLoop() {
         //chequea posiciones de los divs
@@ -38,8 +31,18 @@ class GameLoop {
 
             if(obstaculoEnRango != null){
                 if(obstaculoEnRango.chocaConPersonaje(this.personaje)){
-                    this.end= true;
-                    console.log("es el fin? "+ this.end);
+                    if(obstaculoEnRango.esColeccionable()){
+                        if(!obstaculoEnRango.getSumado()){
+                            this.puntos= this.puntos +this.puntosPorColeccionable;
+                            console.log(this.puntos);
+                            obstaculoEnRango.setSumado(true);
+                            //HAY QUE HACER: ANIMAR COLECCIONABLE, TIENE QUE DESAPARECER
+                        }
+                    }
+                    else{
+                        this.end= true;
+                        console.log("es el fin del juego? "+ this.end);
+                    }
                 }
             }
         }, 100);
@@ -60,13 +63,20 @@ class GameLoop {
         let obs= this.obstaculos[0];
         let obs1= this.obstaculos[1];
         let obs2 = this.obstaculos[2];
+        let col1 =this.obstaculos[3];
+        let col2 =this.obstaculos[4];
         if(obs.getEnRango()){
             return obs;
         }else if(obs1.getEnRango()){
             return obs1;
         }else if(obs2.getEnRango()){
             return obs2;
-        }else return null;
+        }else if(col1.getEnRango()){
+            return col1;
+        }else if (col2.getEnRango()){
+            return col2;
+        }
+        else return null;
     }
 
 

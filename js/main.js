@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //creación de CONTROLGAME para hacer lo que tenga que hacer cada vez que inicia o termina el juego
     let controlGame = new ControlGame(personaje, viewObst, controlDivObst);
     //creación de GAMELOOP para chequear continuamente si el personaje choca
-    let gameLoop = new GameLoop(personaje, arrayObsSuelo, arrayObsAire, controlGame, viewPantalla);
+    let gameLoop = new GameLoop(personaje, controlGame, viewPantalla, controlDivObst);
 
     //creo objeto para controlar movimiento de presonaje
     ///////////NO ME TOMA EL VIEWPERSONAJE :|
