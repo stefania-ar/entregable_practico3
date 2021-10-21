@@ -13,14 +13,14 @@
     top: 20%
 }
 
-/*.animar{
+.animarColeccionable{
     display: block;
-    animation: obstaculoMoverse;
+    animation: animarColeccionable;
+    animation-duration: 0.5s;
     animation-timing-function: linear;
 }
 
-@keyframes obstaculoMoverse {
-    0%{transform: translateX(1266);}
-    100% {transform: translateX(-100px);}
+@keyframes animarColeccionable {
+    0% {background-color: green;}
+    100% {background-color: red;}
 }
-*/

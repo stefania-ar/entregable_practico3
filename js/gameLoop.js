@@ -11,7 +11,6 @@ class GameLoop {
         this.controlObs = controlObs;
     }
 
-    
     //Probar que salte bien despues de rodar
     gameLoop() {
         //chequea posiciones de los divs
@@ -20,13 +19,11 @@ class GameLoop {
                 clearInterval(game);
                 this.controlGame.detainAll();
                 this.viewPantalla.mostrarPantalla();
+                this.puntos = 0;
             }
-            //console.log(personaje.getPosicion());
-           // console.log(" ");
             this.personaje.setPosicion();
             this.setearPosicionesObstaculos();
 
-            //SI HACEMOS UN FOR / WHILE SE SOBRECARGA LA CAPACIDAD DE MI POBRE COMPUTADORA Y ESTALLA TODO POR LOS AIRES
             let obstaculoEnRango = this.getObstaculoEnRango();
 
             if(obstaculoEnRango != null){
@@ -36,7 +33,7 @@ class GameLoop {
                             this.puntos= this.puntos +this.puntosPorColeccionable;
                             console.log(this.puntos);
                             obstaculoEnRango.setSumado(true);
-                            //HAY QUE HACER: ANIMAR COLECCIONABLE, TIENE QUE DESAPARECER
+                            this.controlObs.animarColeccionable(obstaculoEnRango);
                         }
                     }
                     else{
@@ -60,25 +57,13 @@ class GameLoop {
     }
 
     getObstaculoEnRango(){
-        let obs= this.obstaculos[0];
-        let obs1= this.obstaculos[1];
-        let obs2 = this.obstaculos[2];
-        let col1 =this.obstaculos[3];
-        let col2 =this.obstaculos[4];
-        if(obs.getEnRango()){
-            return obs;
-        }else if(obs1.getEnRango()){
-            return obs1;
-        }else if(obs2.getEnRango()){
-            return obs2;
-        }else if(col1.getEnRango()){
-            return col1;
-        }else if (col2.getEnRango()){
-            return col2;
+        let obsEnRango = null;
+        for(let i = 0; i< this.obstaculos.length; i++){
+            if(this.obstaculos[i].getEnRango()){
+                obsEnRango = this.obstaculos[i];
+                break;
+            }
         }
-        else return null;
+        return obsEnRango;
     }
-
-
-
 }
