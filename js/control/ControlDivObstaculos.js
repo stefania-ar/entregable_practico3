@@ -82,37 +82,42 @@ class ControlDivObstaculos{
             //aplica la animación y esta inicia
         this.time1 = setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.divSuelo1, this.tiempoAnimacion)}, 0);
             //remueve la animacion para poder aplicarse devuelta más tarde
-        this.timeFinal1 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.divSuelo1);}, this.tiempoAnimacion);//4000 tiempoAnimacion->4
+        this.timeFinal1 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.divSuelo1);}, 3000);//4000 tiempoAnimacion->4
         ////////////////SUELO///////////////////
         //segundo obstaculo de suelo
             //aplica la animación y esta inicia
-        this.time2 = setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.divSuelo2, this.tiempoAnimacion);}, this.tiempoAnimacion/2);//2000 tiempoAnimacion->4
+        this.time2 = setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.divSuelo2, this.tiempoAnimacion);}, 1500);//2000 tiempoAnimacion->4
             //remueve la animacion para poder aplicarse devuelta más tarde
-        this.timeFinal2 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.divSuelo2);}, this.tiempoAnimacion + 1500);//5500 tiempoAnimacion->4
-        
-        this.time6 =setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.colecSuelo1, this.tiempoAnimacion);}, this.tiempoAnimacion);
-        this.timeFinal6 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.colecSuelo1);}, this.tiempoAnimacion*2);
-        
+        this.timeFinal2 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.divSuelo2);}, 4500);//5500 tiempoAnimacion->4
+        //////COLECCIONABLE SUELO//////
+        this.time6 =setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.colecSuelo1, this.tiempoAnimacion);}, 3000);
+        this.timeFinal6 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.colecSuelo1);}, 6000);
         ////////////////AIRE///////////////////
         //tercer obstaculo de aire
             //aplica la animación y esta inicia
-       /**  this.time3=    setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.divAire1, this.tiempoAnimacion)}, 4500);//4000 tiempoAnimacion->4
+        this.time3=    setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.divAire1, this.tiempoAnimacion)}, 5500);//4000 tiempoAnimacion->4
             //remueve la animación para poder aplicarse devuelta más tarde
-        this.timeFinal3 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.divAire1);}, 4500+3000);//8000 tiempoAnimacion->4
+        this.timeFinal3 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.divAire1);}, 8500);//8000 tiempoAnimacion->4
+        //////COLECCIONABLE AIRE//////
+        this.time7 =setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.colecAire1, this.tiempoAnimacion);}, 6500);
+        this.timeFinal7 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.colecAire1);}, 9500);
         ////////////////SUELO///////////////////
         //cuarto obstaculo de suelo
             //aplica la animación y esta inicia
-        this.time4 = setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.divSuelo1, this.tiempoAnimacion);}, (this.tiempoAnimacion*2)-1000);//7000 tiempoAnimacion->4
+        this.time4 = setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.divSuelo1, this.tiempoAnimacion);}, 8000);//7000 tiempoAnimacion->4
             //remueve la animacion para poder aplicarse devuelta más tarde
-        this.timeFinal4 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.divSuelo1);}, (this.tiempoAnimacion*3)-1000);//11000 tiempoAnimacion->4
+        this.timeFinal4 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.divSuelo1);}, 11000);//11000 tiempoAnimacion->4
         ////////////////AIRE///////////////////
         //quinto obstaculo de aire
             //aplica la animación y esta inicia
-        this.time5 = setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.divAire1, this.tiempoAnimacion);}, (this.tiempoAnimacion*2)+1000);//9000 tiempoAnimacion->4
-            //remueve la animacion para poder aplicarse devuelta más tarde*/
-        this.timeFinal5 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.divAire1);
+        this.time5 = setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.divAire1, this.tiempoAnimacion);}, 10000);//9000 tiempoAnimacion->4
+            //remueve la animacion para poder aplicarse devuelta más tarde
+        this.timeFinal5 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.divAire1);}, 13000); //(this.tiempoAnimacion*3)+1000);//13000 tiempoAnimacion->4
+        //////COLECCIONABLE AIRE//////
+        this.time7 =setTimeout(()=> {this.viewDivObstaculo.aplicarAnimacion(this.colecAire1, this.tiempoAnimacion);}, 12000);
+        this.timeFinal7 = setTimeout(()=> {this.viewDivObstaculo.detenerAnimacion(this.colecAire1);
                 //vuelve a ejecutar la misa secuencia de animación
-            this.secuenciaAnimacion();}, 20); //(this.tiempoAnimacion*3)+1000);//13000 tiempoAnimacion->4
+                this.secuenciaAnimacion();}, 15000);
         }
 
 
