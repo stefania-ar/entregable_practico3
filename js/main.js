@@ -8,6 +8,14 @@ document.addEventListener("DOMContentLoaded", function(){
     let clasesObs= document.getElementsByClassName("obstaculo_suelo");
     //DIVS en el que se muestran obstaculos de tipo AIRE
     let clasesObsA= document.getElementsByClassName("obstaculo_aire");
+    //DIVS coleccionables que son tipo Suelo
+    let divsSuel = document.getElementsByClassName("col_tierra");
+    //DIVS coleccionables que son de tipo Aire
+    let divsAir = document.getElementsByClassName("col_aire");
+
+    //SUS ARRAYS
+    let divsAire= Array.from(divsAir);
+    let divsSuelo = Array.from(divsSuel);
 
     //creación de arrays con DIVS de obtaculos
     let arrayObsSuelo= Array.from(clasesObs);
@@ -36,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //creació de objeto para controlar el tiempo de ANIMACIÓN de los DIVS de OBSTACULOS
     //variable que controla la velocidad en el que corren los obstaculos
     let tiempoAnimacion = 3;
-    let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion, viewObst, widthPantalla);
+    let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion, viewObst, widthPantalla, divsSuelo, divsAire);
     //creación de CONTROLGAME para hacer lo que tenga que hacer cada vez que inicia o termina el juego
     let controlGame = new ControlGame(personaje, viewObst, controlDivObst);
     //creación de GAMELOOP para chequear continuamente si el personaje choca
