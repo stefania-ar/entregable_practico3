@@ -9,6 +9,17 @@ class ViewDivObstaculo{
         divObstaculo.classList.remove("animar");
     }
 
+    animarColeccionable(divColeccionable){
+        let posXActual = divColeccionable.getBoundingClientRect().x;
+        divColeccionable.style.transform = "translateX("+posXActual+"px)";
+        this.detenerAnimacion(divColeccionable)
+        divColeccionable.classList.add("animarColeccionable");
+    }
+
+    desanimarColeccionable(divColeccionable){
+        divColeccionable.classList.remove("animarColeccionable");
+    }
+
     hiden(div){
         div.classList.remove("show");
         div.classList.add("hiden");
