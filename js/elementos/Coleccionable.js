@@ -1,5 +1,5 @@
 class Coleccionable extends ElementoAnimado{
-    
+
     constructor(div){
         super(div);
         this.sumado= false;
@@ -10,9 +10,13 @@ class Coleccionable extends ElementoAnimado{
     }
 
     chocaConPersonaje(personaje){
-        if( personaje.getPosicion().yInicial < this.yFinal || personaje.getPosicion().yFinal -30 > this.yInicial){
+        let pYInicial = personaje.getPosicion().yInicial;
+        let pYFinal = personaje.getPosicion().yFinal;
+        if(pYInicial < this.yFinal && pYFinal > this.yFinal){//AIRE
             return true;
-        } else return false;
+        } else if(pYInicial < this.yInicial && pYFinal > this.yInicial){//TIERRA
+            return true;
+        }else return false;
     }
 
     setSumado(bool){

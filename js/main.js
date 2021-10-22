@@ -4,6 +4,14 @@ document.addEventListener("DOMContentLoaded", function(){
     let divPersonaje = document.getElementById("personaje");
     //DIV en el que se muestra la pantalla de inicio y final
     let divPantalla = document.getElementById("div_pantalla_inicio");
+    //PARRAFO de los puntos
+    let pPuntos = document.getElementById("parrafo_puntos");
+    //PARRAFO puntos finales
+    let pFinalPuntos = document.getElementById("parrafo_puntos_finales");
+    //PARRAFO donde se muestra el tiempo
+    let pTiempo = document.getElementById("p_tiempo");
+    //PARRAFO donde se muestra el tiempo final
+    let pFinalTiempo = document.getElementById("p_tiempo_final");
     //DIVS en el que se muestran obstaculos de tipo SUELO
     let clasesObs= document.getElementsByClassName("obstaculo_suelo");
     //DIVS en el que se muestran obstaculos de tipo AIRE
@@ -37,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //creación de objeto que controla vista el DIV de los OBSTACULOS
     let viewObst = new ViewDivObstaculo();
     //creación de objeto que controla vista el DIV de la PANTALLA
-    let viewPantalla = new ViewPantalla(divPantalla);
+    let viewPantalla = new ViewPantalla(divPantalla, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo);
 
     /////////////CONTROLS/////////////
 
@@ -46,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let tiempoAnimacion = 3;
     let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion, viewObst, widthPantalla, divsSuelo, divsAire);
     //creación de CONTROLGAME para hacer lo que tenga que hacer cada vez que inicia o termina el juego
-    let controlGame = new ControlGame(personaje, viewObst, controlDivObst);
+    let controlGame = new ControlGame(personaje, viewObst, controlDivObst, pTiempo);
     //creación de GAMELOOP para chequear continuamente si el personaje choca
     let gameLoop = new GameLoop(personaje, controlGame, viewPantalla, controlDivObst);
 
@@ -59,10 +67,13 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("btn_start").addEventListener("click", ()=>{
         //oculta la pantalla de inicio
         viewPantalla.ocultarPantalla();
+        //limpia los puntos del contador de los puntos
+        viewPantalla.limpiarPuntosYTiempo();
         //animo los obstaculos y habilita movimiento de personaje
         controlGame.StartAll();
         //ejecuto función de control constante del juego.
         gameLoop.setGameFinished(false);
+        gameLoop.iniciarTimer();
         gameLoop.gameLoop();
     });
 

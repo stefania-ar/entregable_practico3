@@ -15,12 +15,6 @@ class GameLoop {
     gameLoop() {
         //chequea posiciones de los divs
         let game = setInterval(() => {
-            if (this.end) {
-                clearInterval(game);
-                this.controlGame.detainAll();
-                this.viewPantalla.mostrarPantalla();
-                this.puntos = 0;
-            }
             this.personaje.setPosicion();
             this.setearPosicionesObstaculos();
 
@@ -31,18 +25,28 @@ class GameLoop {
                     if(obstaculoEnRango.esColeccionable()){
                         if(!obstaculoEnRango.getSumado()){
                             this.puntos= this.puntos +this.puntosPorColeccionable;
-                            console.log(this.puntos);
+                            //cambiar en el DOM puntos
+                            this.viewPantalla.mostrarPuntos(this.puntos);
                             obstaculoEnRango.setSumado(true);
                             this.controlObs.animarColeccionable(obstaculoEnRango);
                         }
-                    }
-                    else{
-                        this.end= true;
-                        console.log("es el fin del juego? "+ this.end);
+                    }else{
+                        this.end = true;
                     }
                 }
             }
+            if (this.end || this.controlGame.getEndTimer()) {
+                clearInterval(game);
+                this.controlGame.detainAll();
+                this.viewPantalla.ponerDatosEnPantalla();
+                this.viewPantalla.mostrarPantalla();
+                this.puntos = 0;
+            }
         }, 100);
+    }
+
+    iniciarTimer(){
+        this.controlGame.startTimer();
     }
 
     setGameFinished(bool){
@@ -65,5 +69,9 @@ class GameLoop {
             }
         }
         return obsEnRango;
+    }
+
+    getEnd(){
+        return this.end;
     }
 }
