@@ -2,6 +2,7 @@ class ViewPantalla{
 
     constructor(div, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo){
         this.div = div;
+        this.pantallaActiva = true;
         this.pPuntos = pPuntos;
         this.pFinalPuntos = pFinalPuntos;
         this.pTiempo = pTiempo;
@@ -11,11 +12,13 @@ class ViewPantalla{
     mostrarPantalla(){
         this.div.classList.remove("hiden");
         this.div.classList.add("show");
+        this.pantallaActiva = true;
     }
 
     ocultarPantalla(){
         this.div.classList.remove("show");
         this.div.classList.add("hiden");
+        this.pantallaActiva = false;
     }
 
     mostrarPuntos(puntos){
@@ -40,6 +43,10 @@ class ViewPantalla{
     limpiarPuntosYTiempo(){
         this.pPuntos.innerHTML = "0000";
         this.pTiempo.innerHTML = "5:00";
+    }
+
+    getPantallaActiva(){
+        return this.pantallaActiva;
     }
 
 }
