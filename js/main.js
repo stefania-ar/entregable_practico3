@@ -65,6 +65,10 @@ document.addEventListener("DOMContentLoaded", function(){
 ///////////INICIA JUEGO///////////////////////
     ///AGREGAR QUE TAMBIÉN TOME COMO EVENTO CUANDO SE APRIETA LA TECLA ENTER
     document.getElementById("btn_start").addEventListener("click", ()=>{
+        iniciar();
+    });
+
+    function iniciar(){
         //oculta la pantalla de inicio
         viewPantalla.ocultarPantalla();
         //limpia los puntos del contador de los puntos
@@ -75,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function(){
         gameLoop.setGameFinished(false);
         gameLoop.iniciarTimer();
         gameLoop.gameLoop();
-    });
+    }
 
 
     ///////////MOVIMIENTOS DEL PERSONAJE///////////////////////
@@ -95,7 +99,11 @@ document.addEventListener("DOMContentLoaded", function(){
     let roll = false;
 
     function movimiento(e) {
-        if(personaje.canMove()){
+        if(e.key == "Enter"){
+            if(viewPantalla.getPantallaActiva()){
+               iniciar();
+            }
+        }else if(personaje.canMove()){
             if(e.key == "ArrowUp" && salta){
                 //salta
                 //false quiere decir que ya está saltando
