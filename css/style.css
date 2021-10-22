@@ -3,8 +3,6 @@
     padding: 0%;
 }
 
-/**/
-
 body{
     text-align: center;
     height: 100vh;
@@ -29,9 +27,8 @@ header div{
 .p_titulo{
     font-size: 20px;
 }
-
 section{
-
+    perspective: 1px;
 }
 footer{
     padding-top: 0.5%;

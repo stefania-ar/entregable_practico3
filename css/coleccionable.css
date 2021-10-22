@@ -1,8 +1,12 @@
+.contenedor_coleccionables{
+    z-index: 2;
+}
 .coleccionable{
     background-color: yellow;
     position: absolute;
     height: 50px;
     width: 50px;
+    z-index: 2;
 }
 
 .col_tierra{

@@ -1,8 +1,8 @@
-/*.fondo{
-    width: 100%;
+.fondo{
     position: absolute;
+    width: 100%;
     background-color: darkcyan;
-    height: 80%;
+    height: 100%;
     perspective: 1px;
     z-index: 1;
 }
@@ -15,7 +15,7 @@
     height: 100%;
     background-repeat: repeat-x;
     animation-timing-function: linear;
-}*/
+}
 
 @keyframes animarFondo {
     0%{background-position: bottom left 0;}

@@ -1,12 +1,15 @@
+.contenedor_obstaculos{
+    z-index: 2;
+}
 .obstaculo{
     position: absolute;
-    display: none;
     width: 100px;
     height: 100px;
+    z-index: 2;
 }
 
 .obstaculo_suelo{
-    top: 65%;
+    top: 70%;
 }
 
 .obstaculo_aire{
