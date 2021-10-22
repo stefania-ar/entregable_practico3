@@ -3,21 +3,7 @@
     padding: 0%;
 }
 
-.fondo{
-    background-color: darkcyan;
-    width: auto;
-    height: 100%;
-    background-image: url(../img/fondo.png);
-    /*background-repeat: no-repeat;*/
-    background-position: bottom left;
-    animation: animarFondo 19s infinite;
-    animation-timing-function: linear;
-    z-index: 7;
-}
-@keyframes animarFondo {
-    0%{background-position: bottom left 0;}
-    100% {background-position:  bottom left -2560px;}
-}
+/**/
 
 body{
     text-align: center;
@@ -44,6 +30,9 @@ header div{
     font-size: 20px;
 }
 
+section{
+
+}
 footer{
     padding-top: 0.5%;
     font-size: 14px;

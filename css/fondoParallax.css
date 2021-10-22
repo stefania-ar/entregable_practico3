@@ -1,0 +1,53 @@
+/*.fondo{
+    width: 100%;
+    position: absolute;
+    background-color: darkcyan;
+    height: 80%;
+    perspective: 1px;
+    z-index: 1;
+}
+
+.fondo1{
+    background-image: url(../img/fondo/PINK/pink1.png);
+    background-position: bottom left;
+    animation: animarFondo 19s infinite;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat-x;
+    animation-timing-function: linear;
+}*/
+
+@keyframes animarFondo {
+    0%{background-position: bottom left 0;}
+    100% {background-position:  bottom left -1090px;}
+}
+.fondo2{
+    background-image: url(../img/fondo/PINK/pink1.png);
+}
+.fondo3{
+
+}
+
+.fondo4{
+
+}
+
+.fondo5{
+
+}
+
+.fondo6{
+
+}
+
+.fondo7{
+
+}
+
+.fondo8{
+
+}
+
+.fondo9{
+
+}

@@ -1,12 +1,15 @@
 class ViewPantalla{
 
-    constructor(div, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo){
+    constructor(div, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo, pantallaPrin, pantallaSecundaria, btn){
         this.div = div;
-        this.pantallaActiva = true;
+        this.pantallaActiva = false;
         this.pPuntos = pPuntos;
         this.pFinalPuntos = pFinalPuntos;
         this.pTiempo = pTiempo;
         this.pFinalTiempo = pFinalTiempo;
+        this.pantallaPrin= pantallaPrin;
+        this.pantallaSecundaria= pantallaSecundaria;
+        this.btn= btn;
     }
 
     mostrarPantalla(){
@@ -47,6 +50,16 @@ class ViewPantalla{
 
     getPantallaActiva(){
         return this.pantallaActiva;
+    }
+
+    mostrarSegundaPantalla(){
+        this.pantallaPrin.classList.add("hideClass");
+        this.pantallaPrin.classList.remove("pantalla-main");
+
+        this.btn.classList.add("hideClass");
+
+        this.pantallaSecundaria.classList.replace("hideClass", "pantalla-secundaria");
+        this.pantallaActiva = true;
     }
 
 }

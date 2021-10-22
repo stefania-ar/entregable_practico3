@@ -41,6 +41,10 @@ document.addEventListener("DOMContentLoaded", function(){
     //creación de objeto PERSONJAE
     let personaje = new Personaje(divPersonaje);
 
+    //MOSTRAR PANTALLA SECUNDARIA
+        const pantallaPrin= document.getElementById("pantalla-main");
+        const pantallaSecundaria = document.getElementById("pant_secun");
+
     /////////////VIEWS/////////////
 
     //creación de objeto que controla vista el DIV del PERSONAJE
@@ -48,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //creación de objeto que controla vista el DIV de los OBSTACULOS
     let viewObst = new ViewDivObstaculo();
     //creación de objeto que controla vista el DIV de la PANTALLA
-    let viewPantalla = new ViewPantalla(divPantalla, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo);
+    let viewPantalla = new ViewPantalla(divPantalla, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo, pantallaPrin, pantallaSecundaria, btn_entendido);
 
     /////////////CONTROLS/////////////
 
@@ -65,26 +69,8 @@ document.addEventListener("DOMContentLoaded", function(){
     ///////////NO ME TOMA EL VIEWPERSONAJE :|
     //let controlDivPersonaje = new ControlDivPersonaje(divPersonaje);
 
-    //MOSTRAR PANTALLA SECUNDARIA
-    const pantallaPrin= document.getElementById("pantalla-main");
-    const pantallaSecundaria = document.getElementById("pant_secun");
-    let titulos = document.getElementsByClassName("enc-titulo");
-    let arrayTitulos= Array.from(titulos);
-
     btn_entendido.addEventListener("click", function(){
-        pantallaPrin.classList.add("hideClass");
-        pantallaPrin.classList.remove("pantalla-main");
-
-        btn_entendido.classList.add("hideClass");
-
-        pantallaSecundaria.classList.replace("hideClass", "pantalla-secundaria");
-
-        /*arrayTitulos.forEach(element => {
-            element.style.backgroundSize(element.innerWidth)
-        }
-
-        )*/
-
+        viewPantalla.mostrarSegundaPantalla();
     })
 ///////////INICIA JUEGO///////////////////////
     ///AGREGAR QUE TAMBIÉN TOME COMO EVENTO CUANDO SE APRIETA LA TECLA ENTER
