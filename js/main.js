@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function(){
     let pTiempo = document.getElementById("p_tiempo");
     //PARRAFO donde se muestra el tiempo final
     let pFinalTiempo = document.getElementById("p_tiempo_final");
+    //Boton entendio que da paso a la pantalla secundaria
+    const btn_entendido = document.getElementById("btn_entendido");
+    
     //DIVS en el que se muestran obstaculos de tipo SUELO
     let clasesObs= document.getElementsByClassName("obstaculo_suelo");
     //DIVS en el que se muestran obstaculos de tipo AIRE
@@ -62,6 +65,27 @@ document.addEventListener("DOMContentLoaded", function(){
     ///////////NO ME TOMA EL VIEWPERSONAJE :|
     //let controlDivPersonaje = new ControlDivPersonaje(divPersonaje);
 
+    //MOSTRAR PANTALLA SECUNDARIA
+    const pantallaPrin= document.getElementById("pantalla-main");
+    const pantallaSecundaria = document.getElementById("pant_secun");
+    let titulos = document.getElementsByClassName("enc-titulo");
+    let arrayTitulos= Array.from(titulos);
+
+    btn_entendido.addEventListener("click", function(){
+        pantallaPrin.classList.add("hideClass");
+        pantallaPrin.classList.remove("pantalla-main");
+
+        btn_entendido.classList.add("hideClass");
+
+        pantallaSecundaria.classList.replace("hideClass", "pantalla-secundaria");
+
+        /*arrayTitulos.forEach(element => {
+            element.style.backgroundSize(element.innerWidth)
+        }
+
+        )*/
+
+    })
 ///////////INICIA JUEGO///////////////////////
     ///AGREGAR QUE TAMBIÉN TOME COMO EVENTO CUANDO SE APRIETA LA TECLA ENTER
     document.getElementById("btn_start").addEventListener("click", ()=>{
