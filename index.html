@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="css/obstaculo.css">
     <link rel="stylesheet" href="css/pantallaInicio.css">
     <link rel="stylesheet" href="css/coleccionable.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
     <script src="js/main.js"></script>
 </head>
 <body>
@@ -26,7 +29,34 @@
     </header>
     <section>
         <div class="pantalla_inicio show" id="div_pantalla_inicio">
-            <button id="btn_start">start</button>
+            <main class="pantalla-main">
+                <div class="estilo-center">
+                    <h1 >COMO JUGAR</h1>
+                </div>
+                <div class="definir-col">
+                <div class="instructions-app">
+                    <h2>TECLA  ARRIBA = SALTAR</h2>
+                    <img src="img/gatito/gatito_salta.png" alt="personaje gatito" class="img2 com-1">
+                </div>
+                
+                <div class="instructions-app">
+                    <h2 class="com-1">TECLA ABAJO = AGACHARSE</h2>
+                    <img src="img/gatito/gatito_agacha.png" alt="personaje gatito" class="img com-1">
+                </div>
+                <div class="grid instructions-app">
+                    <h2 class="center">CUIDADO CON LOS OBSTACULOS ¡HAY QUE ESQUIVARLOS!</h2>
+                    <div class="obs"></div>
+                </div>
+                <div class="grid1 instructions-app">
+                    <h2 class="center">JUNTA LOS COLECCIONABLES Y SUMA PUNTOS ANTES QUE SE ACABE EL TIEMPO</h2>
+                    <p class="center p">5:00</p>
+                </div>
+                <!---<div >
+                </div>-->
+
+                </div>
+            </main>
+            <button id="btn_start" class="btn_start">start</button>
         </div>
         <div class="contenedor_obstaculos">
             <div class="obstaculo obstaculo_1 obstaculo_suelo"></div>
