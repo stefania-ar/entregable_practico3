@@ -5,8 +5,8 @@ class ControlGame{
         this.personaje= player;
         this.viewDivObstaculos = viewDivObstaculos;
         this.controlDivObs= controlDivObs;
-        this.minutos = 0;
-        this.segundos = 10;
+        this.minutos = 4;
+        this.segundos = 60;
         this.m=this.minutos;
         this.s=this.segundos;
         this.txt = pTiempo;
