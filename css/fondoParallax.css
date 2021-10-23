@@ -7,45 +7,82 @@
     z-index: 1;
 }
 
-.fondo1{
-    background-image: url(../img/fondo/PINK/pink1.png);
+@keyframes animarFondo {
+    0%{background-position:  bottom left 0px;}
+    100% {background-position: bottom left -1920px;}
+}
+
+.fondos{
+    position: absolute;
+    z-index: 1;
     width: 100%;
     height: 100%;
+    background-repeat: repeat-x;
+}
+
+.fondo0{
+    background-image: url(../img/fondo/PINK/pink0.png);
     animation: animarFondo 4s infinite;
     animation-timing-function: linear;
 }
 
-@keyframes animarFondo {
-    0%{background-position: bottom left 0;}
-    100% {background-position:  bottom left -1090px;}
-}
-.fondo2{
+.fondo1{
     background-image: url(../img/fondo/PINK/pink1.png);
+    animation: animarFondo 5s infinite;
+    animation-timing-function: linear;
 }
-.fondo3{
 
+
+.fondo2{
+    background-image: url(../img/fondo/PINK/pink2.png);
+    animation: animarFondo 6s infinite;
+    animation-timing-function: linear;
+}
+
+.fondo3{
+    background-image: url(../img/fondo/PINK/pink3.png);
+    background-position:  bottom left;
+    animation: reflejoAgua 2s infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes reflejoAgua {
+    0%{background-position:  bottom left 0px;}
+    50%{background-position:  bottom left 5px;}
+    100%{background-position:  bottom left 0px;}
 }
 
 .fondo4{
-
+    background-image: url(../img/fondo/PINK/pink4.png);
+    animation: animarFondo 8s infinite;
+    animation-timing-function: linear;
 }
 
 .fondo5{
-
+    background-image: url(../img/fondo/PINK/pink5.png);
+    animation: animarFondo 10s infinite;
+    animation-timing-function: linear;
 }
 
 .fondo6{
-
+    background-image: url(../img/fondo/PINK/pink6.png);
+    animation: animarFondo 12s infinite;
+    animation-timing-function: linear;
 }
 
 .fondo7{
-
+    background-image: url(../img/fondo/PINK/pink7.png);
+    animation: animarFondo 14s infinite;
+    animation-timing-function: linear;
 }
 
 .fondo8{
-
+    background-image: url(../img/fondo/PINK/pink8.png);
+    animation: animarFondo 16s infinite;
+    animation-timing-function: linear;
 }
 
 .fondo9{
-
+    background-image: url(../img/fondo/PINK/pink9.png);
+    background-position:  bottom left;
 }
