@@ -18,7 +18,7 @@
 }
 
 .obstaculo_1{/*tipo suelo*/
-    background-color: aqua;
+    background-image: url(../img/lana.png);
 }
 
 .obstaculo_2{/*tipo suelo*/
@@ -28,13 +28,14 @@
 .obstaculo_3{/*tipo aire*/
     background-color: black;
 }
-
 .animar{
     display: block;
-    animation: obstaculoMoverse;
-    animation-timing-function: linear;
+    animation: obstaculoMoverse infinite;
+    animation-timing-function: steps(9);
 }
 
 @keyframes obstaculoMoverse {
-    100% {transform: translateX(-100px);}
+    0%{background-position: 0;}
+    100% {transform: translateX(-100px);
+        background-position: -961px;}
 }
