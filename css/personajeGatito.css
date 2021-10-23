@@ -15,11 +15,11 @@
 .agachar{
     width: 251px;
     background-image: url(../img/gatito/gatito_agacha.png);
-    animation: down 0.5s steps(4);
+    animation: down 0.3s steps(4);
 }
 
 .rodar{
-    top: 58%;
+    top: 62%;
     width: 251px;
     height: 160px;
     background-image: url(../img/gatito/gatito_camina_agachado.png);
@@ -28,11 +28,10 @@
 }
 
 .levantar{
-    width: 195px;
-    background-color: aqua;
-    background-image: url(../img/gatito/gatito_agacha.png);
+    width: 251px;
+    background-image: url(../img/gatito/gatito_se_levanta.png);
     background-position: -714px;
-    animation: up 0.5s steps(4);
+    animation: up 0.3s steps(4);
 }
 /* KEYFRAMES- ANIMACIONES*/
 @keyframes walk {
@@ -58,5 +57,6 @@
 }
 
 @keyframes up {
-    100% {background-position: 0px;}
+    0%{background-position: 0;}
+    100% {background-position: -1015px;}
 }

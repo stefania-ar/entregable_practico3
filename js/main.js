@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function(){
     let pFinalTiempo = document.getElementById("p_tiempo_final");
     //Boton entendio que da paso a la pantalla secundaria
     const btn_entendido = document.getElementById("btn_entendido");
-    
     //DIVS en el que se muestran obstaculos de tipo SUELO
     let clasesObs= document.getElementsByClassName("obstaculo_suelo");
     //DIVS en el que se muestran obstaculos de tipo AIRE
@@ -23,6 +22,9 @@ document.addEventListener("DOMContentLoaded", function(){
     let divsSuel = document.getElementsByClassName("col_tierra");
     //DIVS coleccionables que son de tipo Aire
     let divsAir = document.getElementsByClassName("col_aire");
+    //MOSTRAR PANTALLA SECUNDARIA
+    const pantallaPrin= document.getElementById("pantalla-main");
+    const pantallaSecundaria = document.getElementById("pant_secun");
 
     //SUS ARRAYS
     let divsAire= Array.from(divsAir);
@@ -41,9 +43,6 @@ document.addEventListener("DOMContentLoaded", function(){
     //creación de objeto PERSONJAE
     let personaje = new Personaje(divPersonaje);
 
-    //MOSTRAR PANTALLA SECUNDARIA
-        const pantallaPrin= document.getElementById("pantalla-main");
-        const pantallaSecundaria = document.getElementById("pant_secun");
 
     /////////////VIEWS/////////////
 
@@ -69,8 +68,14 @@ document.addEventListener("DOMContentLoaded", function(){
     ///////////NO ME TOMA EL VIEWPERSONAJE :|
     //let controlDivPersonaje = new ControlDivPersonaje(divPersonaje);
 
+
+    //variable con la que se controla la primer pantalla de instrucciones
+    //para pasar a la siguiente pantalla
+    let inicioUnico = false;
+
     btn_entendido.addEventListener("click", function(){
         viewPantalla.mostrarSegundaPantalla();
+        inicioUnico = true;
     })
 ///////////INICIA JUEGO///////////////////////
     ///AGREGAR QUE TAMBIÉN TOME COMO EVENTO CUANDO SE APRIETA LA TECLA ENTER
@@ -112,6 +117,9 @@ document.addEventListener("DOMContentLoaded", function(){
         if(e.key == "Enter"){
             if(viewPantalla.getPantallaActiva()){
                iniciar();
+            }else if(!viewPantalla.getPantallaActiva()  && !inicioUnico){
+                inicioUnico = true;
+                viewPantalla.mostrarSegundaPantalla();
             }
         }else if(personaje.canMove()){
             if(e.key == "ArrowUp" && salta){

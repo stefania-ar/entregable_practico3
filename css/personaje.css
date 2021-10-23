@@ -1,8 +1,8 @@
 .personaje{
     position: absolute;
-    top: 40%;
+    top: 42%;
     left: 20%;
-    height: 283px;
+    height: 270px;
     width: 200px;
     /*transform: translate(600px, 250px);*/
     z-index: 10;
