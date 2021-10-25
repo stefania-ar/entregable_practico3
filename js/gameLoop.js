@@ -1,5 +1,5 @@
 class GameLoop {
-    constructor(personaje, controlGame, viewPantalla, controlObs) {
+    constructor(personaje, controlGame, viewPantalla, controlObs, controlDivPersonaje) {
         this.personaje = personaje;
         this.obstaculos = controlObs.getObstaculos();
         this.end = false;
@@ -9,6 +9,7 @@ class GameLoop {
         this.puntos =0;
         this.puntosPorColeccionable =5;
         this.controlObs = controlObs;
+        this.controlDivPersonaje = controlDivPersonaje;
     }
 
     //Probar que salte bien despues de rodar
@@ -37,6 +38,7 @@ class GameLoop {
             }
             if (this.end || this.controlGame.getEndTimer()) {
                 clearInterval(game);
+                this.controlDivPersonaje.caminar();
                 this.controlGame.detainAll();
                 this.viewPantalla.ponerDatosEnPantallaGameOver();
                 this.viewPantalla.mostrarPantallaGameOver();

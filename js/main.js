@@ -62,19 +62,19 @@ document.addEventListener("DOMContentLoaded", function(){
     let viewPantalla = new ViewPantalla(divPantalla, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo, pantallaPrin, pantallaSecundaria, btn_entendido, pantallaGameOver);
 
     /////////////CONTROLS/////////////
-
     //creació de objeto para controlar el tiempo de ANIMACIÓN de los DIVS de OBSTACULOS
     //variable que controla la velocidad en el que corren los obstaculos
+    //creo objeto para controlar movimiento de presonaje
+    ///////////NO ME TOMA EL VIEWPERSONAJE :|
+    let controlDivPersonaje = new ControlDivPersonaje(divPersonaje, viewPersonaje);
+
     let tiempoAnimacion = 3;
     let controlDivObst = new ControlDivObstaculos(arrayObsSuelo, arrayObsAire, tiempoAnimacion, viewObst, widthPantalla, divsSuelo, divsAire);
     //creación de CONTROLGAME para hacer lo que tenga que hacer cada vez que inicia o termina el juego
     let controlGame = new ControlGame(personaje, viewObst, controlDivObst, pTiempo);
     //creación de GAMELOOP para chequear continuamente si el personaje choca
-    let gameLoop = new GameLoop(personaje, controlGame, viewPantalla, controlDivObst);
+    let gameLoop = new GameLoop(personaje, controlGame, viewPantalla, controlDivObst, controlDivPersonaje);
 
-    //creo objeto para controlar movimiento de presonaje
-    ///////////NO ME TOMA EL VIEWPERSONAJE :|
-    //let controlDivPersonaje = new ControlDivPersonaje(divPersonaje);
 
 
     //variable con la que se controla la primer pantalla de instrucciones
@@ -119,22 +119,10 @@ document.addEventListener("DOMContentLoaded", function(){
         viewPantalla.cambiarAFondo2(arrayFondos);
     });
     ///////////MOVIMIENTOS DEL PERSONAJE///////////////////////
-    document.addEventListener('keydown',movimiento);
+    document.addEventListener('keydown',accionesDeTeclas);
     document.addEventListener('keyup',caminarDespuesRoll);
 
-    /*function movimiento(e){
-        controlDivPersonaje.movimiento(e);
-    }
-
-    function caminarDespuesRoll(e){
-        controlDivPersonaje.caminarDespuesRoll(e);
-    }*/
-
-    let salta = true;
-    let down = true;
-    let roll = false;
-
-    function movimiento(e) {
+    function accionesDeTeclas(e){
         if(e.key == "Enter"){
             if(viewPantalla.getPantallaActiva()){
                iniciar();
@@ -145,48 +133,21 @@ document.addEventListener("DOMContentLoaded", function(){
                 viewPantalla.mostrarSegundaPantalla();
             }
         }else if(personaje.canMove()){
-            if(e.key == "ArrowUp" && salta){
-                //salta
-                //false quiere decir que ya está saltando
-                salta = false;
-                viewPersonaje.salta();
-                setTimeout(caminar,1000);
-            }else if(e.key == "ArrowDown" && down && salta){//se pregunta por si está abilitado para saltar si no lo está que no se agache
-                //corto la caminata despues de saltar
-                //se agacha
-                down = false;
-                viewPersonaje.down();
-                //empieza a rodar
-                setTimeout(rodar,250);
+            if(e.key == "ArrowUp" ){
+                controlDivPersonaje.saltar();
+            }else if(e.key == "ArrowDown"){
+                controlDivPersonaje.agachar();
             }
         }
     }
 
-    function rodar(){
-        //pregunta que esté agachado
-        if(!down){
-            roll = true;
-            viewPersonaje.rodar();
-        }
-    }
-
-    function caminar(){
-            //listo para saltar
-            salta = true;
-            //listo para agacharse
-            down = true;
-            //no está rodando
-            roll = false;
-            viewPersonaje.camina();
-    }
-
     function caminarDespuesRoll(e){
-        if(e.key == "ArrowDown" && personaje.canMove()){
-            viewPersonaje.rollUp();
-            setTimeout(caminar,300);
+        if(e.key == "ArrowDown"){
+            if(personaje.canMove()){
+                controlDivPersonaje.caminarDespuesRoll(e);
+            }
         }
     }
 
-    //divMontanias.style.animationPlayState = 'paused';
 });
 
