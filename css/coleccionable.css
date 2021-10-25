@@ -3,31 +3,33 @@
 }
 .coleccionable{
     background-image: url(../img/moneda_gatito_sprite.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
     position: absolute;
-    height: 50px;
+    height: 79px;
     width: 50px;
     z-index: 3;
+    animation: animarColeccionable;
+    animation-timing-function: steps(7);
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 
 .col_tierra{
-    top: 80%;
+    top: 75%;
 }
 
 .col_aire{
     top: 20%;
 }
 
-.animarColeccionable{
+.animarColeccionableTocado{
     display: block;
     background-image: url(../img/moneda_gatito_sprite2.png);
-    height: 79px;
-    transform: translateY(29px);
-    animation: animarColeccionable2;
-    animation-timing-function: steps(7);
-    animation-iteration-count: infinite;
+    /*transform: translateY(1000px);*/
 }
 
-@keyframes animarColeccionable2 {
+@keyframes animarColeccionable {
     0%{background-position: 0;}
     100% {background-position: -341px;}
 }

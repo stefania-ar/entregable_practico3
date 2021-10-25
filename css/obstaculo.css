@@ -3,7 +3,6 @@
 }
 .obstaculo{
     position: absolute;
-    display: none;
     width: 100px;
     height: 100px;
     z-index: 2;
@@ -19,6 +18,8 @@
 
 .obstaculo_1{/*tipo suelo*/
     background-image: url(../img/lana.png);
+    animation: obstaculoMoverse 1s infinite;
+    animation-timing-function: steps(9);
 }
 
 .obstaculo_2{/*tipo suelo*/
@@ -28,15 +29,15 @@
 .obstaculo_3{/*tipo aire*/
     background-color: black;
 }
-.animar{
+/*.animarLana{
     display: block;
     animation: obstaculoMoverse infinite;
-    /*animation-timing-function: steps(9);*/
+    animation-timing-function: steps(9);
     animation-timing-function: linear;
-}
+}*/
 
 @keyframes obstaculoMoverse {
     0%{background-position: 0;}
-    100% {transform: translateX(-100px);
-        /*background-position: -961px;*/}
+    100% {/*transform: translateX(-100px);*/
+        background-position: -961px;}
 }

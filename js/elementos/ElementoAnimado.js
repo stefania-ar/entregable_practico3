@@ -4,6 +4,7 @@ class ElementoAnimado{
         this.div = div;
         this.setPosicion();
         this.enRangodeJuego= false;
+        this.animacion = null;
     }
 
     setPosicion(){
@@ -33,6 +34,15 @@ class ElementoAnimado{
 
     getDiv(){
         return this.div;
+    }
+
+    setAnimacion(variableSetInterval){
+        this.animacion = variableSetInterval;
+    }
+
+    limpiarAnimacion(){
+        clearInterval(this.animacion);
+        this.animacion = null;
     }
 
     chocaConPersonaje(personaje){};

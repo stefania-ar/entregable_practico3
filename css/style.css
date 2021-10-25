@@ -8,6 +8,7 @@ body{
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 6fr 0.5fr;
+    overflow: hidden;
 }
 header{
     display: flex;
