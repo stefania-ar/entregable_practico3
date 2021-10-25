@@ -22,20 +22,20 @@
 
 .fondo0{
     background-image: url(../img/fondo/PINK/pink0.png);
-    animation: animarFondo 4s infinite;
+    animation: animarFondo 15s infinite;
     animation-timing-function: linear;
 }
 
 .fondo1{
     background-image: url(../img/fondo/PINK/pink1.png);
-    animation: animarFondo 5s infinite;
+    animation: animarFondo 25s infinite;
     animation-timing-function: linear;
 }
 
 
 .fondo2{
     background-image: url(../img/fondo/PINK/pink2.png);
-    animation: animarFondo 6s infinite;
+    animation: animarFondo 35s infinite;
     animation-timing-function: linear;
 }
 
@@ -54,19 +54,19 @@
 
 .fondo4{
     background-image: url(../img/fondo/PINK/pink4.png);
-    animation: animarFondo 8s infinite;
+    animation: animarFondo 45s infinite;
     animation-timing-function: linear;
 }
 
 .fondo5{
     background-image: url(../img/fondo/PINK/pink5.png);
-    animation: animarFondo 10s infinite;
+    animation: animarFondo 50s infinite;
     animation-timing-function: linear;
 }
 
 .fondo6{
     background-image: url(../img/fondo/PINK/pink6.png);
-    animation: animarFondo 12s infinite;
+    animation: animarFondo 162s infinite;
     animation-timing-function: linear;
 }
 
