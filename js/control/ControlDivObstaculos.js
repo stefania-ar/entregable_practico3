@@ -67,7 +67,7 @@ class ControlDivObstaculos{
         setTimeout(()=>{this.viewDivObstaculo.desanimarColeccionable(coleccionable.getDiv());
                         this.ubicarDivEnPantalla(coleccionable);
                         coleccionable.setSumado(false);
-        }, 500);
+        }, 1000);
     };
 
     detenerAnimacion(){

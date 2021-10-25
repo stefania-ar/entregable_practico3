@@ -2,7 +2,7 @@
     z-index: 3;
 }
 .coleccionable{
-    background-image: url(../img/coleccionable.png);
+    background-image: url(../img/moneda_gatito_sprite2.png);
     position: absolute;
     height: 50px;
     width: 50px;
@@ -19,12 +19,12 @@
 
 .animarColeccionable{
     display: block;
-    animation: animarColeccionable;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
+    animation: animarColeccionable2;
+    animation-timing-function: steps(7);
+    animation-iteration-count: infinite;
 }
 
-@keyframes animarColeccionable {
-    0% {background-color: green;}
-    100% {background-color: red;}
+@keyframes animarColeccionable2 {
+    0%{background-position: 0;}
+    100% {background-position: -341px;}
 }

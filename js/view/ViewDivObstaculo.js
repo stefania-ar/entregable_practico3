@@ -12,9 +12,10 @@ class ViewDivObstaculo{
     animarColeccionable(divColeccionable){
         //obtiene x del div en la pos actual
         let posXActual = divColeccionable.getBoundingClientRect().x;
+        this.detenerAnimacion(divColeccionable);
         divColeccionable.style.transform = "translateX("+posXActual+"px)";
-        this.detenerAnimacion(divColeccionable)
         divColeccionable.classList.add("animarColeccionable");
+        divColeccionable.style.animationDuration = "0.5s";
     }
 
     desanimarColeccionable(divColeccionable){

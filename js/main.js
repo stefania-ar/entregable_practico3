@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function(){
     let btnFondo1 = document.getElementById("btn_fondo_1");
     //BOTÓN que cambia a fondo 2
     let btnFondo2 = document.getElementById("btn_fondo_2");
+    //BOTÒN start despues de GAME OVER
+    let btnStartGameOver = document.getElementById("btn_start_gameOver");
     //DIV en el que e muestra el presonaje
     let divPersonaje = document.getElementById("personaje");
     //DIV en el que se muestra la pantalla de inicio y final
@@ -91,8 +93,6 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("btn_start").addEventListener("click", ()=>{
         iniciar();
     });
-
-    let btnStartGameOver = document.getElementById("btn_start_gameOver");
 
     btnStartGameOver.addEventListener("click", ()=>{
         viewPantalla.ocultarPantallaGameOver();
