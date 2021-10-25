@@ -62,4 +62,22 @@ class ViewPantalla{
         this.pantallaActiva = true;
     }
 
+    cambiarAFondo1(arrayFondos){
+        let i = 9;
+        arrayFondos.forEach(fondo => {
+            fondo.classList.remove("fondo"+i+"_cambio_2");
+            fondo.classList.add("fondo"+i+"_cambio_1");
+            i = i-1;
+        });
+    }
+
+    cambiarAFondo2(arrayFondos){
+        let i = 9;
+        arrayFondos.forEach(fondo => {
+            fondo.classList.remove("fondo"+i+"_cambio_1");
+            fondo.classList.add("fondo"+i+"_cambio_2");
+            i = i-1;
+        });
+    }
+
 }

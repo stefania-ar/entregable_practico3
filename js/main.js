@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(){
     ///////////ELEMENTOS DEL DOM////////////////
+    //DIVS de fondos
+    let divsFondos = document.getElementsByClassName("fondos");
+    //BOTÓN que cambia a fondo 1
+    let btnFondo1 = document.getElementById("btn_fondo_1");
+    //BOTÓN que cambia a fondo 2
+    let btnFondo2 = document.getElementById("btn_fondo_2");
     //DIV en el que e muestra el presonaje
     let divPersonaje = document.getElementById("personaje");
     //DIV en el que se muestra la pantalla de inicio y final
@@ -33,7 +39,8 @@ document.addEventListener("DOMContentLoaded", function(){
     //creación de arrays con DIVS de obtaculos
     let arrayObsSuelo= Array.from(clasesObs);
     let arrayObsAire= Array.from(clasesObsA);
-
+    //Array de fondos
+    let arrayFondos = Array.from(divsFondos);
     //VARIABLE PARA UBICAR LOS DIVS DE LOS OBSTÁCULOS AL FINAL DE LA PANTALLA
     //se la paso a ControlDivObstaculos();
     let widthPantalla = window.innerWidth;
@@ -96,7 +103,13 @@ document.addEventListener("DOMContentLoaded", function(){
         gameLoop.gameLoop();
     }
 
-
+    /////////CAMBIO DE FONDOS////////
+    btnFondo1.addEventListener("click", ()=>{
+        viewPantalla.cambiarAFondo1(arrayFondos);
+    });
+    btnFondo2.addEventListener("click", ()=>{
+        viewPantalla.cambiarAFondo2(arrayFondos);
+    });
     ///////////MOVIMIENTOS DEL PERSONAJE///////////////////////
     document.addEventListener('keydown',movimiento);
     document.addEventListener('keyup',caminarDespuesRoll);

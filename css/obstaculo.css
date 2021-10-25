@@ -31,11 +31,12 @@
 .animar{
     display: block;
     animation: obstaculoMoverse infinite;
-    animation-timing-function: steps(9);
+    /*animation-timing-function: steps(9);*/
+    animation-timing-function: linear;
 }
 
 @keyframes obstaculoMoverse {
     0%{background-position: 0;}
     100% {transform: translateX(-100px);
-        background-position: -961px;}
+        /*background-position: -961px;*/}
 }
