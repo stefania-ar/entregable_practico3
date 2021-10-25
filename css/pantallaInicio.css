@@ -148,7 +148,7 @@
     background-image: url(../img/fondo/BLUE/Night\ sky.png);
 }
 
-.enc-titulo:hover{
+.enc_titulo_hover{
     animation: shadow-drop-2-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 

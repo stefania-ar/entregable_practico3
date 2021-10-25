@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     btn_entendido.addEventListener("click", function(){
         viewPantalla.mostrarSegundaPantalla();
+        btnFondo1.click();
         inicioUnico = true;
     })
 ///////////INICIA JUEGO///////////////////////
@@ -114,9 +115,23 @@ document.addEventListener("DOMContentLoaded", function(){
     /////////CAMBIO DE FONDOS////////
     btnFondo1.addEventListener("click", ()=>{
         viewPantalla.cambiarAFondo1(arrayFondos);
+        btnFondo2.classList.remove("enc_titulo_hover");
+        btnFondo1.classList.add("enc_titulo_hover");
     });
     btnFondo2.addEventListener("click", ()=>{
         viewPantalla.cambiarAFondo2(arrayFondos);
+        btnFondo1.classList.remove("enc_titulo_hover");
+        btnFondo2.classList.add("enc_titulo_hover");
+    });
+
+    btnFondo1.addEventListener("mouseenter", ()=>{
+        console.log("hover");
+        btnFondo2.classList.remove("enc_titulo_hover");
+        btnFondo1.classList.add("enc_titulo_hover");
+    });
+    btnFondo2.addEventListener("mouseenter", ()=>{
+        btnFondo1.classList.remove("enc_titulo_hover");
+        btnFondo2.classList.add("enc_titulo_hover");
     });
     ///////////MOVIMIENTOS DEL PERSONAJE///////////////////////
     document.addEventListener('keydown',accionesDeTeclas);
@@ -131,7 +146,12 @@ document.addEventListener("DOMContentLoaded", function(){
             }else if(!viewPantalla.getPantallaActiva()  && !inicioUnico){
                 inicioUnico = true;
                 viewPantalla.mostrarSegundaPantalla();
+                btnFondo1.click();
             }
+        }else if(e.key == "ArrowUp" && viewPantalla.getPantallaActiva() ){
+            btnFondo1.click();
+        }else if(e.key == "ArrowDown" && viewPantalla.getPantallaActiva() ){
+            btnFondo2.click();
         }else if(personaje.canMove()){
             if(e.key == "ArrowUp" ){
                 controlDivPersonaje.saltar();
