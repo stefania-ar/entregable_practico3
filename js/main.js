@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //MOSTRAR PANTALLA SECUNDARIA
     const pantallaPrin= document.getElementById("pantalla-main");
     const pantallaSecundaria = document.getElementById("pant_secun");
+    let pantallaGameOver = document.getElementById("pantalla_game_over");
 
     //SUS ARRAYS
     let divsAire= Array.from(divsAir);
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //creación de objeto que controla vista el DIV de los OBSTACULOS
     let viewObst = new ViewDivObstaculo();
     //creación de objeto que controla vista el DIV de la PANTALLA
-    let viewPantalla = new ViewPantalla(divPantalla, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo, pantallaPrin, pantallaSecundaria, btn_entendido);
+    let viewPantalla = new ViewPantalla(divPantalla, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo, pantallaPrin, pantallaSecundaria, btn_entendido, pantallaGameOver);
 
     /////////////CONTROLS/////////////
 
@@ -88,6 +89,13 @@ document.addEventListener("DOMContentLoaded", function(){
     ///AGREGAR QUE TAMBIÉN TOME COMO EVENTO CUANDO SE APRIETA LA TECLA ENTER
     document.getElementById("btn_start").addEventListener("click", ()=>{
         iniciar();
+    });
+
+    let btnStartGameOver = document.getElementById("btn_start_gameOver");
+
+    btnStartGameOver.addEventListener("click", ()=>{
+        viewPantalla.ocultarPantallaGameOver();
+        viewPantalla.mostrarSegundaPantalla();
     });
 
     function iniciar(){
@@ -130,6 +138,8 @@ document.addEventListener("DOMContentLoaded", function(){
         if(e.key == "Enter"){
             if(viewPantalla.getPantallaActiva()){
                iniciar();
+            }else if (viewPantalla.getPantallaGameOverActiva()){
+                viewPantalla.ocultarPantallaGameOver();
             }else if(!viewPantalla.getPantallaActiva()  && !inicioUnico){
                 inicioUnico = true;
                 viewPantalla.mostrarSegundaPantalla();

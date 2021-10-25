@@ -32,9 +32,6 @@
         <div class="pantalla_inicio show" id="div_pantalla_inicio">
             <main class="pantalla-main" id="pantalla-main">
                 <div class="estilo-center">
-                    <!----DESPUES SACAR ESTE PARRAFO DE LOS PUNTOS FINALLES-->
-                    <p id="p_tiempo_final"></p>
-                    <p id="parrafo_puntos_finales"></p>
                     <h1 class="agrandar-letra">COMO JUGAR</h1>
                 </div>
                 <div class="definir-col">
@@ -42,7 +39,7 @@
                     <h2>TECLA  ARRIBA = SALTAR</h2>
                     <img src="img/gatito/gatito_salta.png" alt="personaje gatito" class="img2 com-1">
                 </div>
-                
+
                 <div class="instructions-app">
                     <h2 class="com-1">TECLA ABAJO = AGACHARSE</h2>
                     <img src="img/gatito/gatito_agacha.png" alt="personaje gatito" class="img com-1">
@@ -68,23 +65,23 @@
                 </div>
                 <button class="enc-titulo" id="btn_fondo_1">background 1</button>
                 <button class="enc-titulo  fondoCambio" id="btn_fondo_2">background 2</button>
-                <!--<h2 class="enc-titulo">background 1</h2>
-                <h2 class="enc-titulo fondoCambio">background 2</h2>-->
                 <button class="enc-btn" id="btn_start">¡empezar!</button>
             </main>
 
-           <!---  <main class="game-over">
+           <main class="game_over hideClass" id="pantalla_game_over">
                 <h1 class="center titulo-over">game over</h1>
-
                 <div class="formar-columnas">
-                    <div class="puntaje"> 
+                    <div class="puntaje">
                         <h2>puntaje</h2>
+                        <p id="parrafo_puntos_finales"></p>
                     </div>
                     <div>
-                        tiempo restante
+                        <p>tiempo restante</p>
+                        <p id="p_tiempo_final"></p>
                     </div>
                 </div>
-            </main>-->
+                <button class="enc-btn" id="btn_start_gameOver">¡ok!</button>
+            </main>
         </div>
         <div class="contenedor_obstaculos">
             <div class="obstaculo obstaculop"></div>

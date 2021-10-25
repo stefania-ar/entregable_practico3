@@ -38,8 +38,8 @@ class GameLoop {
             if (this.end || this.controlGame.getEndTimer()) {
                 clearInterval(game);
                 this.controlGame.detainAll();
-                this.viewPantalla.ponerDatosEnPantalla();
-                this.viewPantalla.mostrarPantalla();
+                this.viewPantalla.ponerDatosEnPantallaGameOver();
+                this.viewPantalla.mostrarPantallaGameOver();
                 this.puntos = 0;
             }
         }, 100);

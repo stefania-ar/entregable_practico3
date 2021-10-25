@@ -2,7 +2,7 @@
     z-index: 3;
 }
 .coleccionable{
-    background-color: yellow;
+    background-image: url(../img/coleccionable.png);
     position: absolute;
     height: 50px;
     width: 50px;

@@ -1,8 +1,9 @@
 class ViewPantalla{
 
-    constructor(div, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo, pantallaPrin, pantallaSecundaria, btn){
+    constructor(div, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo, pantallaPrin, pantallaSecundaria, btn, pantallaGameOver){
         this.div = div;
         this.pantallaActiva = false;
+        this.pantallaGameOverActiva = false;
         this.pPuntos = pPuntos;
         this.pFinalPuntos = pFinalPuntos;
         this.pTiempo = pTiempo;
@@ -10,6 +11,7 @@ class ViewPantalla{
         this.pantallaPrin= pantallaPrin;
         this.pantallaSecundaria= pantallaSecundaria;
         this.btn= btn;
+        this.pantallaGameOver = pantallaGameOver;
     }
 
     mostrarPantalla(){
@@ -38,11 +40,6 @@ class ViewPantalla{
         this.pPuntos.innerHTML = puntosString;
     }
 
-    ponerDatosEnPantalla(){
-        this.pFinalPuntos.innerHTML = this.pPuntos.innerHTML;
-        this.pFinalTiempo.innerHTML = this.pTiempo.innerHTML;
-    }
-
     limpiarPuntosYTiempo(){
         this.pPuntos.innerHTML = "0000";
         this.pTiempo.innerHTML = "5:00";
@@ -50,6 +47,10 @@ class ViewPantalla{
 
     getPantallaActiva(){
         return this.pantallaActiva;
+    }
+
+    getPantallaGameOverActiva(){
+        return this.pantallaGameOverActiva;
     }
 
     mostrarSegundaPantalla(){
@@ -60,6 +61,24 @@ class ViewPantalla{
 
         this.pantallaSecundaria.classList.replace("hideClass", "pantalla-secundaria");
         this.pantallaActiva = true;
+    }
+
+    mostrarPantallaGameOver(){
+        this.div.classList.replace("hiden", "show");
+        this.pantallaSecundaria.classList.add("hideClass");
+        this.pantallaGameOver.classList.remove("hideClass");
+        this.pantallaGameOverActiva = true;
+    }
+
+    ocultarPantallaGameOver(){
+        this.pantallaGameOver.classList.add("hideClass");
+        this.mostrarSegundaPantalla();
+        this.pantallaGameOverActiva = false;
+    }
+
+    ponerDatosEnPantallaGameOver(){
+        this.pFinalPuntos.innerHTML = this.pPuntos.innerHTML;
+        this.pFinalTiempo.innerHTML = this.pTiempo.innerHTML;
     }
 
     cambiarAFondo1(arrayFondos){
