@@ -6,6 +6,7 @@ class ViewPersonaje {
         this.personaje.classList.remove("agachar");
         this.personaje.classList.remove("rodar");
         this.personaje.classList.remove("caminar");
+        this.personaje.classList.remove("levantar");
         this.personaje.classList.add("saltar");
     }
 
@@ -22,6 +23,7 @@ class ViewPersonaje {
         this.personaje.classList.remove("saltar");
         this.personaje.classList.remove("rodar");
         this.personaje.classList.remove("caminar");
+        this.personaje.classList.remove("levantar");
         this.personaje.classList.add("agachar");
     }
 
@@ -29,6 +31,7 @@ class ViewPersonaje {
         this.personaje.classList.remove("saltar");
         this.personaje.classList.remove("agachar");
         this.personaje.classList.remove("caminar");
+        this.personaje.classList.remove("levantar");
         this.personaje.classList.add("rodar");
     }
 

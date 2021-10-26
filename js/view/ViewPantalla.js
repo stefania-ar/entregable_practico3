@@ -76,9 +76,14 @@ class ViewPantalla{
         this.pantallaGameOverActiva = false;
     }
 
-    ponerDatosEnPantallaGameOver(){
+    ponerDatosEnPantallaGameOver(json){
         this.pFinalPuntos.innerHTML = this.pPuntos.innerHTML;
-        this.pFinalTiempo.innerHTML = this.pTiempo.innerHTML;
+
+        if (json.s < 10) {
+            this.pFinalTiempo.innerHTML = json.m+ ":" + "0"+json.s;
+        }else{
+            this.pFinalTiempo.innerHTML = json.m+ ":"+json.s;
+        }
     }
 
     cambiarAFondo1(arrayFondos){

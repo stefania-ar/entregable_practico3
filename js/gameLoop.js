@@ -39,8 +39,8 @@ class GameLoop {
             if (this.end || this.controlGame.getEndTimer()) {
                 this.controlDivPersonaje.choca();
                 clearInterval(game);
+                this.viewPantalla.ponerDatosEnPantallaGameOver(this.controlGame.calcularTiempoJugado());
                 this.controlGame.detainAll();
-                this.viewPantalla.ponerDatosEnPantallaGameOver();
                 this.viewPantalla.mostrarPantallaGameOver();
                 this.puntos = 0;
             }

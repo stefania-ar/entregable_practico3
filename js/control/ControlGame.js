@@ -37,6 +37,7 @@ class ControlGame{
         this.controlDivObs.animarObstaculos();
     }
 
+    // SE INICIA EL TIMER DE JUEGO QUE MUESTRA EL TIEMPO RESTNTE
     startTimer() {
         this.timer = setInterval(()=>{
             if(this.m ==0 && this.s==0){
@@ -68,8 +69,23 @@ class ControlGame{
     limpiarTimer(){
         clearInterval(this.timer);
     }
+
     getEndTimer(){
         return this.endTimer;
+    }
+
+    calcularTiempoJugado(){
+        let m= this.minutos; //4
+        let s = this.segundos; //60
+
+        let m1= this.m; 
+        let s1= this.s;
+
+        let totalM = m- m1;
+        let totalS = s -s1;
+
+        return { m: totalM,
+                 s: totalS}
     }
 
 }
