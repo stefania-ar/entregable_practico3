@@ -125,13 +125,14 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     btnFondo1.addEventListener("mouseenter", ()=>{
-        console.log("hover");
         btnFondo2.classList.remove("enc_titulo_hover");
         btnFondo1.classList.add("enc_titulo_hover");
+        btnFondo1.click();
     });
     btnFondo2.addEventListener("mouseenter", ()=>{
         btnFondo1.classList.remove("enc_titulo_hover");
         btnFondo2.classList.add("enc_titulo_hover");
+        btnFondo2.click();
     });
     ///////////MOVIMIENTOS DEL PERSONAJE///////////////////////
     document.addEventListener('keydown',accionesDeTeclas);
