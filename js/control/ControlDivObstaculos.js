@@ -17,6 +17,8 @@ class ControlDivObstaculos{
         this.time7= null;
         this.time8 = null;
         this.timeFinal= null;
+
+        //this.incrementarVelocidad = null;
     }
 
     getObstaculos(){
@@ -52,6 +54,9 @@ class ControlDivObstaculos{
 
     animarObstaculos(){
         this.secuenciaDivs = setTimeout( this.secuenciaAnimacion(), 0);
+       /* this.incrementarVelocidad = setInterval(()=>{this.tiempoAnimacion = this.tiempoAnimacion*0.9;
+            console.log(this.tiempoAnimacion);
+        },15000);*/
     }
 
     animarColeccionable(coleccionable){
@@ -64,6 +69,7 @@ class ControlDivObstaculos{
     };
 
     detenerAnimacion(){
+        //clearInterval(this.incrementarVelocidad);
         clearTimeout(this.secuenciaDivs);
         clearTimeout(this.time1);
         clearTimeout(this.time2);
