@@ -58,7 +58,7 @@ class ControlGame{
                     }
                 }
             }
-        }, 1300);
+        }, 1000);
     };
 
     setTimer(){
