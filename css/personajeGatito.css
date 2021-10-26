@@ -30,8 +30,13 @@
 .levantar{
     width: 251px;
     background-image: url(../img/gatito/gatito_se_levanta.png);
-    background-position: -714px;
     animation: up 0.3s steps(4);
+}
+
+.choca{
+    width: 187px;
+    background-image: url(../img/gatito/gatito_choca.png);
+    animation: choca 1s steps(7);
 }
 /* KEYFRAMES- ANIMACIONES*/
 @keyframes walk {
@@ -59,4 +64,13 @@
 @keyframes up {
     0%{background-position: 0;}
     100% {background-position: -1015px;}
+}
+
+@keyframes choca {
+    0%{background-position: 0;}
+    25%{transform: translateY(-15px)}
+    50%{transform: translateY(15px)}
+    75%{transform: translateY(-15px)}
+    100% {background-position: -1300px;
+        transform: translateY(15px)}
 }

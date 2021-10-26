@@ -5,6 +5,7 @@ class ControlDivPersonaje{
         this.salta = true;
         this.down = true;
         this.roll = false;
+        this.setTimeSalta = null;
     }
 
     saltar(){
@@ -13,7 +14,7 @@ class ControlDivPersonaje{
             //false quiere decir que ya está saltando
             this.salta = false;
             this.viewPersonaje.salta();
-            setTimeout(()=>{this.caminar();},1000);
+            this.setTimeSalta = setTimeout(()=>{this.caminar();},1000);
         }
     }
 
@@ -47,5 +48,11 @@ class ControlDivPersonaje{
     caminarDespuesRoll(){
         this.viewPersonaje.rollUp();
         setTimeout(()=>{this.caminar();},300);
+    }
+
+    choca(){
+        this.viewPersonaje.choca();
+        clearInterval(this.setTimeSalta);
+        setTimeout(()=>{this.caminar();}, 1000);
     }
 }

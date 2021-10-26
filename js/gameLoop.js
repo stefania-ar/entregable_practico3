@@ -37,8 +37,8 @@ class GameLoop {
                 }
             }
             if (this.end || this.controlGame.getEndTimer()) {
+                this.controlDivPersonaje.choca();
                 clearInterval(game);
-                this.controlDivPersonaje.caminar();
                 this.controlGame.detainAll();
                 this.viewPantalla.ponerDatosEnPantallaGameOver();
                 this.viewPantalla.mostrarPantallaGameOver();

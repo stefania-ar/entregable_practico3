@@ -14,6 +14,7 @@ class ViewPersonaje {
         this.personaje.classList.remove("saltar");
         this.personaje.classList.remove("agachar");
         this.personaje.classList.remove("rodar");
+        this.personaje.classList.remove("choca");
         this.personaje.classList.add("caminar");
     }
 
@@ -37,5 +38,14 @@ class ViewPersonaje {
         this.personaje.classList.remove("caminar");
         this.personaje.classList.remove("rodar");
         this.personaje.classList.add("levantar");
+    }
+
+    choca(){
+        this.personaje.classList.remove("saltar");
+        this.personaje.classList.remove("agachar");
+        this.personaje.classList.remove("caminar");
+        this.personaje.classList.remove("rodar");
+        this.personaje.classList.remove("levantar");
+        this.personaje.classList.add("choca");
     }
 }
