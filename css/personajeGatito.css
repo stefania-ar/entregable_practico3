@@ -44,7 +44,9 @@
 }
 
 .choca{
-    width: 187px;
+    width: 184px;
+    height: 270px;
+    top: 42%;
     background-image: url(../img/gatito/gatito_choca.png);
     animation: choca 1s steps(7);
 }
