@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function(){
     let pFinalTiempo = document.getElementById("p_tiempo_final");
     //Boton entendio que da paso a la pantalla secundaria
     const btn_entendido = document.getElementById("btn_entendido");
+    //Botòn siguiente
+    let btn_siguiente = document.getElementById("btn_siguiente");
     //DIVS en el que se muestran obstaculos de tipo SUELO
     let clasesObs= document.getElementsByClassName("obstaculo_suelo");
     //DIVS en el que se muestran obstaculos de tipo AIRE
@@ -34,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const pantallaPrin= document.getElementById("pantalla-main");
     const pantallaSecundaria = document.getElementById("pant_secun");
     let pantallaGameOver = document.getElementById("pantalla_game_over");
+    let pantallaExpAnimacion = document.getElementById("pantalla_explicacion_animaciones");
 
     //SUS ARRAYS
     let divsAire= Array.from(divsAir);
@@ -61,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //creación de objeto que controla vista el DIV de los OBSTACULOS
     let viewObst = new ViewDivObstaculo();
     //creación de objeto que controla vista el DIV de la PANTALLA
-    let viewPantalla = new ViewPantalla(divPantalla, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo, pantallaPrin, pantallaSecundaria, btn_entendido, pantallaGameOver);
+    let viewPantalla = new ViewPantalla(divPantalla, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo, pantallaPrin, pantallaSecundaria, btn_entendido, pantallaGameOver, pantallaExpAnimacion, btn_siguiente);
 
     /////////////CONTROLS/////////////
     //creació de objeto para controlar el tiempo de ANIMACIÓN de los DIVS de OBSTACULOS
@@ -80,9 +83,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     //variable con la que se controla la primer pantalla de instrucciones
+    //variable para ocultar primer pantalla de explicacion de animaciones
+    let pasoExplicacionAnimacion = false;
     //para pasar a la siguiente pantalla
     let inicioUnico = false;
 
+    btn_siguiente.addEventListener("click", ()=>{
+        viewPantalla.mostrarPantallaComoJugar();
+        pasoExplicacionAnimacion = true;
+    });
     btn_entendido.addEventListener("click", function(){
         viewPantalla.mostrarSegundaPantalla();
         btnFondo1.click();
@@ -144,7 +153,10 @@ document.addEventListener("DOMContentLoaded", function(){
                iniciar();
             }else if (viewPantalla.getPantallaGameOverActiva()){
                 viewPantalla.ocultarPantallaGameOver();
-            }else if(!viewPantalla.getPantallaActiva()  && !inicioUnico){
+            }else if(!pasoExplicacionAnimacion){
+                pasoExplicacionAnimacion = true;
+                viewPantalla.mostrarPantallaComoJugar();
+            }else if(!viewPantalla.getPantallaActiva()  && !inicioUnico && pasoExplicacionAnimacion){
                 inicioUnico = true;
                 viewPantalla.mostrarSegundaPantalla();
                 btnFondo1.click();

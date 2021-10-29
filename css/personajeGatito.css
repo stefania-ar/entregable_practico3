@@ -1,4 +1,14 @@
 
+.personaje{
+    position: absolute;
+    top: 42%;
+    left: 20%;
+    height: 270px;
+    width: 200px;
+    /*transform: translate(600px, 250px);*/
+    z-index: 10;
+
+}
 
 .caminar{
     width: 190px;
@@ -34,7 +44,9 @@
 }
 
 .choca{
-    width: 187px;
+    width: 184px;
+    height: 270px;
+    top: 42%;
     background-image: url(../img/gatito/gatito_choca.png);
     animation: choca 1s steps(7);
 }

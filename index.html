@@ -7,7 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fondoParallax.css">
-    <link rel="stylesheet" href="css/personaje.css">
     <link rel="stylesheet" href="css/personajeGatito.css">
     <link rel="stylesheet" href="css/obstaculo.css">
     <link rel="stylesheet" href="css/pantallaInicio.css">
@@ -16,6 +15,7 @@
     <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet"><!-->
     <script src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/dae53e07cf.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -31,10 +31,9 @@
     <section>
         <div class="pantalla_inicio show" id="div_pantalla_inicio">
 
-            <main class="pantalla-main" id="pantalla-main">
+            <main class="pantalla pantalla-main hideClass" id="pantalla-main">
                 <div class="estilo-center">
                     <h1 class="agrandar-letra">COMO JUGAR</h1>
-                    <h2 class="pequeño anim-typewriter"> enter para continuar... </h2>
                     <!-- <img src="img/arrow-enter-svgrepo-com.svg" alt="" srcset="" style="color: aliceblue;"><!-->
                 </div>
 
@@ -58,7 +57,7 @@
                     </div>
                 </div>
             </main>
-            <button id="btn_entendido">¡Entendido!</button>
+            <button class="btn_entendido hideClass" id="btn_entendido">¡Entendido!</button>
 
             <main class="hideClass" id="pant_secun">
                 <div class="encolumnar center">
@@ -71,7 +70,6 @@
 
            <main class="game_over hideClass" id="pantalla_game_over">
                 <h1 class="center titulo-over">game over</h1>
-                
                     <div class="puntaje estilo-punt-tiem ">
                         <h2 class="agrandar-letra">puntaje</h2>
                         <p id="parrafo_puntos_finales" class="alinear"></p>
@@ -80,20 +78,82 @@
                         <p class="agrandar-letra">tiempo jugado</p>
                         <p id="p_tiempo_final" class="alinear"></p>
                     </div>
-                
                 <button class="enc-btn ok" id="btn_start_gameOver">¡ok!</button>
             </main>
-
-           <main class="pantalla-main hideClass">
-               <p>Datos tecnicos sobre animaciones</p>
-               <p>A lo largo del juego utilizamos 3 animaciones distintas de la animación default: caminar</p>
-               <p>Para la animación saltar, keyframe: jump. Archivo: css/personajeGatito.css linea 47</p>
-               <p>AGACHARSE, keyframe: down. Archivo: css/personajeGatito linea 54</p>
-               <p>Chocarse, keyframe choca. linea 69</p>
-               <h1>ANIMACIONES ADICIONALES</h1>
-               <p>FONDO con parallax scrolling </p>
-               <p>obstaculos</p>
-               <p>coleccionables</p>
+            <!--EXPLICACION DE ANIMACIONES-->
+           <main class="pantalla pantalla_explicacion_animaciones" id="pantalla_explicacion_animaciones">
+               <section class=" instructions-app secExp2 section2_pExp">
+                   <h3>Animaciones obligatorias</h3>
+                   <div class="explicacion_animacion">
+                       <div>
+                            <p>Acción</p>
+                            <p>@keyframes</p>
+                            <p>Archivo</p>
+                       </div>
+                       <div>
+                            <p class="pExp">Caminar</p>
+                            <p class="pExp">walk</p>
+                            <p class="pExp">css/personajeGatito.css linea 54</p>
+                            <!---->
+                            <p class="pExp">Saltar</p>
+                            <p class="pExp">jump</p>
+                            <p class="pExp">css/personajeGatito.css linea 59</p>
+                            <!---->
+                            <p class="pExp">Agacharse</p>
+                            <p class="pExp">down</p>
+                            <p class="pExp">css/personajeGatito.css linea 66</p>
+                            <!---->
+                            <p class="pExp">Chocarse</p>
+                            <p class="pExp">choca</p>
+                            <p class="pExp">css/personajeGatito.css linea 81</p>
+                            <!---->
+                            <p class="pExp">Fondo Parallax</p>
+                            <p class="pExp">animarFondo</p>
+                            <p class="pExp">css/fondoParrallax.css linea 10</p>
+                       </div>
+                       <div></div>
+                   </div>
+               </section>
+               <section class=" instructions-app section3_pExp">
+                    <h3>Traslacion de obstaculo y coleccionables</h3>
+                    <div class="explicacion_animacion div_exp_min">
+                        <div>
+                            <p>Acción</p>
+                            <p>Funciòn</p>
+                            <p>Archivo</p>
+                        </div>
+                        <div>
+                            <!---->
+                            <p class="pExp">Traslaciòn</p>
+                            <p class="pExp">animarObstaculos()</p>
+                            <p class="pExp">js/control/ControlDivObstaculos.js linea 55</p>
+                        </div>
+                    </div>
+                </section>
+               <section class=" instructions-app section3_pExp">
+                    <h3>Animaciones adicionales</h3>
+                    <div class="explicacion_animacion">
+                        <div>
+                            <p>Acción</p>
+                            <p>@keyframes</p>
+                            <p>Archivo</p>
+                        </div>
+                        <div>
+                            <!---->
+                            <p class="pExp">coleccionables</p>
+                            <p class="pExp">animarColeccionable</p>
+                            <p class="pExp">css/coleccionable.css linea 32</p>
+                            <!---->
+                            <p class="pExp">Obstaculos</p>
+                            <p class="pExp">obstaculoMoverse/obstaculoAireMoverse</p>
+                            <p class="pExp">css/obstaculo.css linea 42/47</p>
+                        </div>
+                    </div>
+               </section>
+                <section>
+                    <h2 class="pequeño anim-typewriter"> enter para continuar... </h2>
+                    <button class="btn_siguiente" id="btn_siguiente">siguiente</button>
+                </section>
            </main>
         </div>
         <div class="contenedor_obstaculos">
@@ -108,7 +168,6 @@
         </div>
         <div class="personaje caminar" id="personaje"></div>
         <div class="fondo">
-            <div class="fondos fondo9 fondo9_cambio_1"></div>
             <div class="fondos fondo8 fondo8_cambio_1"></div>
             <div class="fondos fondo7 fondo7_cambio_1"></div>
             <div class="fondos fondo6 fondo6_cambio_1"></div>
