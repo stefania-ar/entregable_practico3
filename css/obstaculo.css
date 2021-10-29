@@ -9,11 +9,15 @@
 }
 
 .obstaculo_suelo{
-    top: 70%;
+    top: 73%;
 }
 
 .obstaculo_aire{
-    top: 35%;
+    height: 312px;
+    width: 115px;
+    background-image: url(../img/obstaculoAire.png);
+    animation: obstaculoAireMoverse 1.5s infinite;
+    animation-timing-function: steps(9);
 }
 
 .obstaculo_1{/*tipo suelo*/
@@ -23,12 +27,11 @@
 }
 
 .obstaculo_2{/*tipo suelo*/
-    background-color: brown;
+    background-image: url(../img/lana2.png);
+    animation: obstaculoMoverse 1s infinite;
+    animation-timing-function: steps(9);
 }
 
-.obstaculo_3{/*tipo aire*/
-    background-color: black;
-}
 /*.animarLana{
     display: block;
     animation: obstaculoMoverse infinite;
@@ -38,6 +41,10 @@
 
 @keyframes obstaculoMoverse {
     0%{background-position: 0;}
-    100% {/*transform: translateX(-100px);*/
-        background-position: -961px;}
+    100% {background-position: -961px;}
+}
+
+@keyframes obstaculoAireMoverse {
+    0%{background-position: 0;}
+    100% { background-position: -997px;}
 }

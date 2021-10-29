@@ -1,6 +1,7 @@
 class ControlDivObstaculos{
     constructor(arrayDivSuelo, arrayDivAire, tiempoAnimacion, viewDivObstaculo, widthPantalla, divsSuelo, divsAire){
         this.widthPantalla = widthPantalla;
+        console.log(widthPantalla);
         this.tiempoAnimacion = tiempoAnimacion*1000;
         this.viewDivObstaculo = viewDivObstaculo;
         //junto todos los divs para luego recorrerlos y aplicar algo a todos por igual
