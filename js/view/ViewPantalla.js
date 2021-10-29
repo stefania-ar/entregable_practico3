@@ -80,9 +80,9 @@ class ViewPantalla{
         this.pFinalPuntos.innerHTML = this.pPuntos.innerHTML;
 
         if (json.s < 10) {
-            this.pFinalTiempo.innerHTML = json.m+ ":" + "0"+json.s;
+            this.pFinalTiempo.innerHTML = json.m+ ":" + "0"+json.s +" minutos";
         }else{
-            this.pFinalTiempo.innerHTML = json.m+ ":"+json.s;
+            this.pFinalTiempo.innerHTML = json.m+ ":"+json.s + " minutos";
         }
     }
 

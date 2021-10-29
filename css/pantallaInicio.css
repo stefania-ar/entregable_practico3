@@ -128,6 +128,10 @@
    grid-column: 2/3;
 }
 
+.alinear{
+    padding-top: 5vh;
+}
+
 #btn_entendido{
     position: absolute;
     z-index: 13;
@@ -276,6 +280,7 @@
     z-index: 12;
     max-height: 100%;
     row-gap: 5vh;
+    column-gap: 2vh;
 }
 
 .titulo-over{
@@ -289,7 +294,7 @@
 }
 
 .estilo-punt-tiem{
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .formar-columnas{
@@ -300,6 +305,7 @@
     grid-column: 1/6;
     background-color: #000;
     border-radius: 10px;
+    margin-left: 1vh;
 }
 
 .hideClass{
@@ -310,9 +316,10 @@
     grid-column: 6/11;
     background-color: #000;
     border-radius: 10px;
+    margin-right: 1vh;
 }
 
 .ok{
     grid-row: 3/4;
-    grid-column: 3/5;
+    grid-column: 5/7;
 }
