@@ -1,6 +1,6 @@
 class ViewPantalla{
 
-    constructor(div, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo, pantallaPrin, pantallaSecundaria, btn, pantallaGameOver){
+    constructor(div, pPuntos, pFinalPuntos, pTiempo, pFinalTiempo, pantallaPrin, pantallaSecundaria, btnEntendido, pantallaGameOver, pantallaExpAnimacion, btn_siguiente){
         this.div = div;
         this.pantallaActiva = false;
         this.pantallaGameOverActiva = false;
@@ -10,8 +10,10 @@ class ViewPantalla{
         this.pFinalTiempo = pFinalTiempo;
         this.pantallaPrin= pantallaPrin;
         this.pantallaSecundaria= pantallaSecundaria;
-        this.btn= btn;
+        this.btnEntendido= btnEntendido;
         this.pantallaGameOver = pantallaGameOver;
+        this.pantallaExpAnimacion = pantallaExpAnimacion;
+        this.btn_siguiente = btn_siguiente;
     }
 
     mostrarPantalla(){
@@ -53,11 +55,20 @@ class ViewPantalla{
         return this.pantallaGameOverActiva;
     }
 
+    mostrarPantallaComoJugar(){
+        console.log("entra");
+        this.pantallaExpAnimacion.classList.add("hideClass");
+        this.btn_siguiente.classList.add("hideClass");
+        this.pantallaPrin.classList.remove("hideClass");
+        this.btnEntendido.classList.remove("hideClass");//
+    }
+
+
     mostrarSegundaPantalla(){
         this.pantallaPrin.classList.add("hideClass");
         this.pantallaPrin.classList.remove("pantalla-main");
 
-        this.btn.classList.add("hideClass");
+        this.btnEntendido.classList.add("hideClass");
 
         this.pantallaSecundaria.classList.replace("hideClass", "pantalla-secundaria");
         this.pantallaActiva = true;
