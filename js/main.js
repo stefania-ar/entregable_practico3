@@ -155,10 +155,8 @@ document.addEventListener("DOMContentLoaded", function(){
             btnFondo2.click();
         }else if(personaje.canMove()){
             if(e.key == "ArrowUp" ){
-                console.log("aca salta");
                 controlDivPersonaje.saltar();
             }else if(e.key == "ArrowDown"){
-                console.log("aca se agacha");
                 controlDivPersonaje.agachar();
             }
         }
@@ -166,10 +164,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function caminarDespuesRoll(e){
         if(e.key == "ArrowDown"){
-            console.log(personaje.returnTRUE());
             if(personaje.canMove()){
                 controlDivPersonaje.caminarDespuesRoll();
-                console.log("aca se levanta");
             }
         }
     }
