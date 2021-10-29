@@ -41,7 +41,7 @@ class GameLoop {
                 clearInterval(game);
                 this.viewPantalla.ponerDatosEnPantallaGameOver(this.controlGame.calcularTiempoJugado());
                 this.controlGame.detainAll();
-                this.viewPantalla.mostrarPantallaGameOver();
+                setTimeout(()=> {this.viewPantalla.mostrarPantallaGameOver()}, 1000);
                 this.puntos = 0;
             }
         }, 100);
