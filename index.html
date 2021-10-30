@@ -31,29 +31,44 @@
     <section>
         <div class="pantalla_inicio show" id="div_pantalla_inicio">
 
-            <main class="pantalla pantalla-main hideClass" id="pantalla-main">
+            <main class="pantalla pantalla-main pantalla_main_movimiento hideClass" id="pantalla-main">
                 <div class="estilo-center">
                     <h1 class="agrandar-letra">COMO JUGAR</h1>
-                    <!-- <img src="img/arrow-enter-svgrepo-com.svg" alt="" srcset="" style="color: aliceblue;"><!-->
                 </div>
 
                 <div class="definir-col">
-                    <div class="instructions-app">
-                        <h2>TECLA  ARRIBA = SALTAR</h2>
-                        <img src="img/gatito_salta_muestra.png" alt="personaje gatito" class="img2 com-1">
-                    </div>
+                    <div>
+                        <div class="instructions-app instructions_app1">
+                            <h2>SALTAR</h2>
+                            <div class="div_column">
+                                <img class="img2 com-1" src="img/teclas/teclas.png" alt="" >
+                                <p class="p_saltar_igual">=</p>
+                                <img class="img2 com-1" src="img/gatito_salta_muestra.png" alt="personaje gatito" ></imgsrc>
+                            </div>
+                        </div>
 
-                    <div class="instructions-app">
-                        <h2 class="com-1">TECLA ABAJO = AGACHARSE</h2>
-                        <img src="img/gatito_agacha_muestra.png" alt="personaje gatito" class="img com-1">
+                        <div class="instructions-app">
+                            <h2 class="com-1">AGACHARSE</h2>
+                            <div class="div_column">
+                                <img class="img2 com-1" src="img/teclas/teclasDown.png" alt="" >
+                                <p class="p_saltar_igual">=</p>
+                                <img class="img com-1" src="img/gatito_agacha_muestra.png" alt="personaje gatito" >
+                            </div>
+                        </div>
                     </div>
-                    <div class="grid instructions-app">
-                        <h2 class="center">CUIDADO CON LOS OBSTACULOS ¡HAY QUE ESQUIVARLOS!</h2>
-                        <img src="img/lana1.png" alt="obstaculo gatito lana" class="obs ">
-                    </div>
-                    <div class="grid1 instructions-app">
-                        <h2 class="center">JUNTA LOS COLECCIONABLES Y SUMA PUNTOS ANTES QUE SE ACABE EL TIEMPO</h2>
-                        <p class="center p">5:00</p>
+                    <div>
+                        <div class="instructions-app">
+                            <h2 class="center">¡ESQUIVARLOS!</h2>
+                            <img src="img/lana1.png" alt="obstaculo gatito lana" class="obs ">
+                        </div>
+                        <div class="instructions-app">
+                            <h2 class="center">¡SUMÀ PUNTOS!</h2>
+                            <img src="img/coleccionable.png" alt="">
+                        </div>
+                        <div class="instructions-app">
+                            <h2 class="center">¡CUIDADO CON EL TIEMPO!</h2>
+                            <p class="center p">5:00</p>
+                        </div>
                     </div>
                 </div>
             </main>
@@ -70,14 +85,14 @@
 
            <main class="game_over hideClass" id="pantalla_game_over">
                 <h1 class="center titulo-over">game over</h1>
-                    <div class="puntaje estilo-punt-tiem ">
-                        <h2 class="agrandar-letra">puntaje</h2>
-                        <p id="parrafo_puntos_finales" class="alinear"></p>
-                    </div>
-                    <div class="tiempo estilo-punt-tiem ">
-                        <p class="agrandar-letra">tiempo jugado</p>
-                        <p id="p_tiempo_final" class="alinear"></p>
-                    </div>
+                <div class="puntaje estilo-punt-tiem ">
+                    <h2 class="agrandar-letra">puntaje</h2>
+                    <p id="parrafo_puntos_finales" class="alinear"></p>
+                </div>
+                <div class="tiempo estilo-punt-tiem ">
+                    <p class="agrandar-letra">tiempo jugado</p>
+                    <p id="p_tiempo_final" class="alinear"></p>
+                </div>
                 <button class="enc-btn ok" id="btn_start_gameOver">¡ok!</button>
             </main>
             <!--EXPLICACION DE ANIMACIONES-->

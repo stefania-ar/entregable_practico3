@@ -32,13 +32,6 @@
     animation-timing-function: steps(9);
 }
 
-/*.animarLana{
-    display: block;
-    animation: obstaculoMoverse infinite;
-    animation-timing-function: steps(9);
-    animation-timing-function: linear;
-}*/
-
 @keyframes obstaculoMoverse {
     0%{background-position: 0;}
     100% {background-position: -961px;}
